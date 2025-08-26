@@ -1,0 +1,49 @@
+[gd_scene load_steps=2 format=3 uid="uid://cx01entr6g4at"]
+
+[ext_resource type="FontFile" uid="uid://5pm6sclng1ir" path="res://Fonts/Square.ttf" id="1_1fjoe"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -519.0
+offset_top = -109.5
+offset_right = 519.0
+offset_bottom = 109.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.843137, 0.133333, 0.243137, 1)
+theme_override_fonts/font = ExtResource("1_1fjoe")
+theme_override_font_sizes/font_size = 210
+text = "Game Over"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+layout_mode = 0
+offset_left = -36.0
+offset_top = -53.0
+offset_right = 1199.0
+offset_bottom = 681.0
+color = Color(0.129558, 0.129558, 0.129559, 1)
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 586.0
+offset_right = 986.0
+offset_bottom = 640.0
+theme_override_colors/font_color = Color(0, 0.976471, 0, 1)
+theme_override_fonts/font = ExtResource("1_1fjoe")
+theme_override_font_sizes/font_size = 42
+text = "tip: try to find virus before it reach the server"

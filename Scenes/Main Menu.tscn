@@ -1,0 +1,75 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfjwuv8a8m5bt"]
+
+[ext_resource type="Script" uid="uid://c3i2kvajil1pm" path="res://Scripts/main_menu.gd" id="1_hcxxy"]
+[ext_resource type="FontFile" uid="uid://5pm6sclng1ir" path="res://Fonts/Square.ttf" id="1_totuj"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hcxxy")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 639.0
+scale = Vector2(1.00108, 1)
+color = Color(0.233925, 0.233925, 0.233925, 1)
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -172.5
+offset_top = -47.0
+offset_right = 172.5
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.161293, 0.929449, 0.799155, 1)
+theme_override_fonts/font = ExtResource("1_totuj")
+theme_override_font_sizes/font_size = 50
+text = "Start"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -172.0
+offset_top = 85.0
+offset_right = 173.0
+offset_bottom = 179.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.843995, 0.132867, 0.242554, 1)
+theme_override_fonts/font = ExtResource("1_totuj")
+theme_override_font_sizes/font_size = 50
+text = "Exit"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -533.0
+offset_top = 79.0
+offset_right = 535.0
+offset_bottom = 232.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0.257746, 0.995748, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_totuj")
+theme_override_font_sizes/font_size = 146
+text = "Digital Pursuit"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
