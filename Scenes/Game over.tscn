@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cx01entr6g4at"]
+[gd_scene load_steps=3 format=3 uid="uid://cx01entr6g4at"]
 
 [ext_resource type="FontFile" uid="uid://5pm6sclng1ir" path="res://Fonts/Square.ttf" id="1_1fjoe"]
+[ext_resource type="Script" uid="uid://dm15qcc4t1n8c" path="res://Scripts/button.gd" id="1_og3lb"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -9,8 +10,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_og3lb")
 
-[node name="Label" type="Label" parent="."]
+[node name="Game over txt" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -37,13 +39,34 @@ offset_right = 1199.0
 offset_bottom = 681.0
 color = Color(0.129558, 0.129558, 0.129559, 1)
 
-[node name="Label2" type="Label" parent="."]
+[node name="TIP txt" type="Label" parent="."]
 layout_mode = 0
-offset_left = 17.0
-offset_top = 586.0
-offset_right = 986.0
-offset_bottom = 640.0
+offset_left = 77.0
+offset_top = 417.0
+offset_right = 1070.0
+offset_bottom = 471.0
 theme_override_colors/font_color = Color(0, 0.976471, 0, 1)
 theme_override_fonts/font = ExtResource("1_1fjoe")
 theme_override_font_sizes/font_size = 42
 text = "tip: try to find virus before it reach the server"
+
+[node name="Return Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -78.0
+offset_top = -148.0
+offset_right = 69.0
+offset_bottom = -97.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.985832, 1.00717)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_1fjoe")
+theme_override_font_sizes/font_size = 40
+text = "Return"
+
+[connection signal="pressed" from="Return Button" to="." method="_on_button_pressed"]
