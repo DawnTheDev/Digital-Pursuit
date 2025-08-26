@@ -1,0 +1,345 @@
+[gd_scene load_steps=15 format=3 uid="uid://imie7ncfy7yp"]
+
+[ext_resource type="Texture2D" uid="uid://denxcofj8y8cu" path="res://images/image.png" id="1_0hol4"]
+[ext_resource type="Script" uid="uid://cmb30r7l5ixba" path="res://Scripts/dice.gd" id="2_q6r6c"]
+[ext_resource type="FontFile" uid="uid://cq8kyonfo2exn" path="res://font/Fragmentcore.otf" id="3_0hol4"]
+[ext_resource type="Texture2D" uid="uid://ca7hu582bco2b" path="res://images/atk-modified - Copy.png" id="4_0hol4"]
+[ext_resource type="Texture2D" uid="uid://cut7c08o0g2dw" path="res://images/gpt-removebg-preview.png" id="5_q6r6c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_epypp"]
+size = Vector2(225, 225)
+
+[sub_resource type="LabelSettings" id="LabelSettings_d21ai"]
+font = ExtResource("3_0hol4")
+font_size = 171
+font_color = Color(0.278431, 1, 0.164706, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_rj586"]
+font = ExtResource("3_0hol4")
+font_size = 31
+
+[sub_resource type="LabelSettings" id="LabelSettings_4d7sh"]
+font = ExtResource("3_0hol4")
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_ir8iy"]
+font = ExtResource("3_0hol4")
+font_size = 60
+
+[sub_resource type="LabelSettings" id="LabelSettings_0hol4"]
+font = ExtResource("3_0hol4")
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_q6r6c"]
+font = ExtResource("3_0hol4")
+font_size = 55
+
+[sub_resource type="LabelSettings" id="LabelSettings_hqns4"]
+font = ExtResource("3_0hol4")
+font_size = 45
+font_color = Color(0, 0.862745, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_kdubu"]
+font = ExtResource("3_0hol4")
+font_size = 121
+font_color = Color(0, 0.917647, 0.192157, 1)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(730, 340)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(730, 340)
+scale = Vector2(0.547778, 0.526667)
+texture = ExtResource("1_0hol4")
+script = ExtResource("2_q6r6c")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D"]
+position = Vector2(1.01351, 5.72205e-06)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+position = Vector2(-1.01352, -7.70887e-06)
+shape = SubResource("RectangleShape2D_epypp")
+
+[node name="number" type="Label" parent="Sprite2D"]
+offset_left = -74.8479
+offset_top = -77.8481
+offset_right = 81.1521
+offset_bottom = 94.1519
+label_settings = SubResource("LabelSettings_d21ai")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="atk" type="Button" parent="."]
+offset_left = 142.0
+offset_top = 561.0
+offset_right = 317.0
+offset_bottom = 618.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="atk"]
+layout_mode = 0
+offset_right = 174.0
+offset_bottom = 57.0
+text = "ATTACK"
+label_settings = SubResource("LabelSettings_rj586")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="heal" type="Button" parent="."]
+offset_left = 646.0
+offset_top = 558.0
+offset_right = 821.0
+offset_bottom = 615.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="heal"]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 175.0
+offset_bottom = 57.0
+text = "HEAL"
+label_settings = SubResource("LabelSettings_rj586")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="healIndicator" type="Label" parent="heal"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0571429
+anchor_top = 0.964912
+anchor_right = 0.08
+anchor_bottom = 0.964912
+offset_left = 1.0
+offset_right = 175.0
+offset_bottom = 57.0
+text = "Healing: Player 1"
+label_settings = SubResource("LabelSettings_rj586")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="spell" type="Button" parent="."]
+offset_left = 1156.0
+offset_top = 559.0
+offset_right = 1331.0
+offset_bottom = 616.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="spell"]
+layout_mode = 0
+offset_left = 2.0
+offset_right = 176.0
+offset_bottom = 57.0
+text = "SPELL"
+label_settings = SubResource("LabelSettings_rj586")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="CDindicator" type="Label" parent="spell"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0914286
+anchor_top = 1.07018
+anchor_right = 0.0914286
+anchor_bottom = 1.07018
+offset_left = 2.0
+offset_right = 176.0
+offset_bottom = 57.0
+text = "COOLDOWN: 3"
+label_settings = SubResource("LabelSettings_rj586")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="chanceindicator" type="Label" parent="."]
+offset_left = 622.0
+offset_top = 425.0
+offset_right = 840.0
+offset_bottom = 476.0
+label_settings = SubResource("LabelSettings_4d7sh")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="actionindicator" type="Sprite2D" parent="."]
+position = Vector2(1378, 87)
+texture = ExtResource("4_0hol4")
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 768.0
+offset_top = 40.0
+offset_right = 1304.0
+offset_bottom = 131.0
+text = "CURRENT ACTION:"
+label_settings = SubResource("LabelSettings_ir8iy")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="rolling" type="Label" parent="."]
+offset_left = 603.0
+offset_top = 159.0
+offset_right = 860.0
+offset_bottom = 228.0
+label_settings = SubResource("LabelSettings_0hol4")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="currentplr" type="Label" parent="."]
+offset_left = 27.0
+offset_top = 40.0
+offset_right = 710.0
+offset_bottom = 131.0
+text = "CURRENT TURN: Player 1"
+label_settings = SubResource("LabelSettings_q6r6c")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="enemy" type="Sprite2D" parent="."]
+position = Vector2(313, 324)
+scale = Vector2(0.929464, 0.860195)
+texture = ExtResource("5_q6r6c")
+
+[node name="ProgressBar" type="ProgressBar" parent="enemy"]
+offset_left = -133.41
+offset_top = 126.715
+offset_right = 131.59
+offset_bottom = 153.715
+metadata/_edit_use_anchors_ = true
+
+[node name="enemyaction" type="Label" parent="enemy"]
+visible = false
+offset_left = -207.0
+offset_top = -167.0
+offset_right = 187.0
+offset_bottom = -127.0
+label_settings = SubResource("LabelSettings_hqns4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="1" type="Label" parent="."]
+visible = false
+offset_left = -640.0
+offset_top = -211.0
+offset_right = -600.0
+offset_bottom = -89.0
+text = "1"
+label_settings = SubResource("LabelSettings_kdubu")
+
+[node name="0" type="Label" parent="."]
+visible = false
+offset_left = -574.008
+offset_top = -92.2931
+offset_right = -515.008
+offset_bottom = 29.7069
+text = "0"
+label_settings = SubResource("LabelSettings_kdubu")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1082.0
+offset_top = 229.0
+offset_right = 1432.0
+offset_bottom = 467.0
+metadata/_edit_use_anchors_ = true
+
+[node name="player1hp" type="ProgressBar" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = 85.0
+offset_top = 1.0
+offset_right = 350.0
+offset_bottom = 28.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Control/player1hp"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 0
+offset_left = -83.0
+offset_top = 1.0
+offset_right = -21.0
+offset_bottom = 24.0
+text = "Player 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="player2hp" type="ProgressBar" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = 85.0
+offset_top = 71.0
+offset_right = 350.0
+offset_bottom = 98.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="Control/player2hp"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 0
+offset_left = -83.0
+offset_top = 2.0
+offset_right = -21.0
+offset_bottom = 25.0
+text = "Player 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="player3hp" type="ProgressBar" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = 85.0
+offset_top = 141.0
+offset_right = 350.0
+offset_bottom = 168.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label3" type="Label" parent="Control/player3hp"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 0
+offset_left = -83.0
+offset_top = 3.0
+offset_right = -21.0
+offset_bottom = 26.0
+text = "Player 3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="player4hp" type="ProgressBar" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = 85.0
+offset_top = 211.0
+offset_right = 350.0
+offset_bottom = 238.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label4" type="Label" parent="Control/player4hp"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 0
+offset_left = -83.0
+offset_top = 4.0
+offset_right = -21.0
+offset_bottom = 27.0
+text = "Player 4"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="area_entered" from="Sprite2D/Area2D" to="Sprite2D" method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Sprite2D/Area2D" to="Sprite2D" method="_on_area_2d_area_exited"]
+[connection signal="mouse_entered" from="Sprite2D/Area2D" to="Sprite2D" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Sprite2D/Area2D" to="Sprite2D" method="_on_area_2d_mouse_exited"]
+[connection signal="pressed" from="atk" to="Sprite2D" method="_on_atk_pressed"]
+[connection signal="pressed" from="heal" to="Sprite2D" method="_on_heal_pressed"]
+[connection signal="pressed" from="spell" to="Sprite2D" method="_on_spell_pressed"]
