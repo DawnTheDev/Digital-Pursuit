@@ -1,10 +1,11 @@
 [gd_scene load_steps=6 format=4 uid="uid://b20245u0pq6k"]
 
-[ext_resource type="Texture2D" uid="uid://d2pchiuna4e8" path="res://Scripts/images.jpg" id="1_8myga"]
 [ext_resource type="Texture2D" uid="uid://ca2m07ittg1q5" path="res://MAP/images.png" id="2_mvxsj"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qoivx"]
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qj2qk"]
-texture = ExtResource("1_8myga")
+texture = SubResource("CompressedTexture2D_qoivx")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0

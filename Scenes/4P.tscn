@@ -1,0 +1,493 @@
+[gd_scene load_steps=15 format=4 uid="uid://byctv1o3ajb6f"]
+
+[ext_resource type="Texture2D" uid="uid://d2pchiuna4e8" path="res://MAP/images.jpg" id="1_6a8qt"]
+[ext_resource type="Script" uid="uid://njrkucjpnu1k" path="res://Scripts/Main4P.gd" id="1_i2ov8"]
+[ext_resource type="Texture2D" uid="uid://ca2m07ittg1q5" path="res://MAP/images.png" id="2_i2ov8"]
+[ext_resource type="FontFile" uid="uid://5pm6sclng1ir" path="res://Fonts/Square.ttf" id="3_kah33"]
+[ext_resource type="Texture2D" uid="uid://o4f5mw72rw0w" path="res://Images/icon.svg" id="5_56haj"]
+[ext_resource type="Texture2D" uid="uid://j130nmryflsd" path="res://MAP/checkerboard-banner-pale-green-white-260nw-2107002719.webp" id="6_wpb5i"]
+[ext_resource type="Texture2D" uid="uid://djwhdmbmqr2ag" path="res://Images/the-server-4.webp" id="8_aw77x"]
+[ext_resource type="Texture2D" uid="uid://bbkhbq4fqhisx" path="res://Images/Virus Digital.png" id="8_i2ov8"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rceh8"]
+texture = ExtResource("1_6a8qt")
+texture_region_size = Vector2i(32, 32)
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+0:0/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+1:0/0 = 0
+1:1/0 = 0
+1:2/0 = 0
+2:0/0 = 0
+2:1/0 = 0
+2:2/0 = 0
+3:0/0 = 0
+3:1/0 = 0
+3:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qmo07"]
+texture = ExtResource("2_i2ov8")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+12:2/0 = 0
+13:2/0 = 0
+14:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+13:3/0 = 0
+14:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+10:4/0 = 0
+11:4/0 = 0
+12:4/0 = 0
+13:4/0 = 0
+14:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+10:5/0 = 0
+11:5/0 = 0
+12:5/0 = 0
+13:5/0 = 0
+14:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+9:6/0 = 0
+10:6/0 = 0
+11:6/0 = 0
+12:6/0 = 0
+13:6/0 = 0
+14:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+8:7/0 = 0
+9:7/0 = 0
+10:7/0 = 0
+11:7/0 = 0
+12:7/0 = 0
+13:7/0 = 0
+14:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+7:8/0 = 0
+8:8/0 = 0
+9:8/0 = 0
+10:8/0 = 0
+11:8/0 = 0
+12:8/0 = 0
+13:8/0 = 0
+14:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+6:9/0 = 0
+7:9/0 = 0
+8:9/0 = 0
+9:9/0 = 0
+10:9/0 = 0
+11:9/0 = 0
+12:9/0 = 0
+13:9/0 = 0
+14:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+4:10/0 = 0
+5:10/0 = 0
+6:10/0 = 0
+7:10/0 = 0
+8:10/0 = 0
+9:10/0 = 0
+10:10/0 = 0
+11:10/0 = 0
+12:10/0 = 0
+13:10/0 = 0
+14:10/0 = 0
+0:11/0 = 0
+1:11/0 = 0
+2:11/0 = 0
+3:11/0 = 0
+4:11/0 = 0
+5:11/0 = 0
+6:11/0 = 0
+7:11/0 = 0
+8:11/0 = 0
+9:11/0 = 0
+10:11/0 = 0
+11:11/0 = 0
+12:11/0 = 0
+13:11/0 = 0
+14:11/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_k1jnv"]
+tile_size = Vector2i(32, 32)
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Terrain 0"
+terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
+sources/3 = SubResource("TileSetAtlasSource_qmo07")
+sources/0 = SubResource("TileSetAtlasSource_rceh8")
+
+[sub_resource type="LabelSettings" id="LabelSettings_6a8qt"]
+font = ExtResource("3_kah33")
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_i2ov8"]
+font = ExtResource("3_kah33")
+font_size = 30
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6a8qt"]
+size = Vector2(640, 640)
+
+[node name="Main4P" type="Node2D"]
+script = ExtResource("1_i2ov8")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAAAAAABAAEAAAAAAAEAAwACAAMAAAAAAAIAAAABAAEAAAAAAAMAAwAFAAQAAAAAAAQAAAABAAEAAAAAAAUAAwAFAAQAAAAAAAYAAAABAAEAAAAAAAcAAwACAAMAAAAAAAgAAAABAAEAAAAAAAkAAwAFAAQAAAAAAAoAAAABAAEAAAAAAAsAAwAFAAQAAAAAAAwAAAABAAEAAAAAAA0AAwACAAMAAAAAAA4AAAABAAEAAAAAAA8AAwACAAMAAAAAABAAAAABAAEAAAAAABEAAwAFAAQAAAAAABIAAAABAAEAAAAAABMAAwAFAAQAAAABAAAAAwAFAAQAABABAAEAAAABAAEAAAABAAIAAwACAAMAAAABAAMAAAABAAEAAAABAAQAAwAFAAQAAAABAAUAAAABAAEAAAABAAYAAwAFAAQAABABAAcAAAABAAEAAAABAAgAAwACAAMAAAABAAkAAAABAAEAAAABAAoAAwAFAAQAAAABAAsAAAABAAEAAAABAAwAAwAFAAQAABABAA0AAAABAAEAAAABAA4AAwAFAAQAABABAA8AAAABAAEAAAABABAAAwACAAMAAAABABEAAAABAAEAAAABABIAAwAFAAQAAAABABMAAAABAAEAAAACAAMAAwAFAAQAAAACAAQAAAABAAEAAAACAAUAAwAFAAQAAAACAAYAAAABAAEAAAACAAcAAwACAAMAAAACAAgAAAABAAEAAAACAAkAAwAFAAQAAAACAAoAAAABAAEAAAACAAsAAwAFAAQAAAACAAwAAAABAAEAAAACAA0AAwACAAMAAAACAA4AAAABAAEAAAACAA8AAwACAAMAAAACABAAAAABAAEAAAACABEAAwAFAAQAAAACABIAAAABAAEAAAACABMAAwAFAAQAAAADAAMAAAABAAEAAAADAAQAAwAFAAQAAAADAAUAAAABAAEAAAADAAYAAwAFAAQAABADAAcAAAABAAEAAAADAAgAAwACAAMAAAADAAkAAAABAAEAAAADAAoAAwAFAAQAAAADAAsAAAABAAEAAAADAAwAAwAFAAQAABADAA0AAAABAAEAAAADAA4AAwAFAAQAABADAA8AAAABAAEAAAADABAAAwACAAMAAAADABEAAAABAAEAAAADABIAAwAFAAQAAAADABMAAAABAAEAAAAEAAMAAwAFAAQAAAAEAAQAAAABAAEAAAAEAAUAAwAFAAQAAAAEAAYAAAABAAEAAAAEAAcAAwACAAMAAAAEAAgAAAABAAEAAAAEAAkAAwAFAAQAAAAEAAoAAAABAAEAAAAEAAsAAwAFAAQAAAAEAAwAAAABAAEAAAAEAA0AAwACAAMAAAAEAA4AAAABAAEAAAAEAA8AAwACAAMAAAAEABAAAAABAAEAAAAEABEAAwAFAAQAAAAEABIAAAABAAEAAAAFAAAAAwAFAAQAABAFAAEAAAABAAEAAAAFAAIAAwACAAMAAAAFAAMAAAABAAEAAAAFAAQAAwAFAAQAAAAFAAUAAAABAAEAAAAFAAYAAwAFAAQAABAFAAcAAAABAAEAAAAFAAgAAwACAAMAAAAFAAkAAAABAAEAAAAFAAoAAwAFAAQAAAAFAAsAAAABAAEAAAAFAAwAAwAFAAQAABAFAA0AAAABAAEAAAAFAA4AAwAFAAQAABAFAA8AAAABAAEAAAAFABAAAwACAAMAAAAFABEAAAABAAEAAAAFABIAAwAFAAQAAAAFABMAAAABAAEAAAAGAAAAAAABAAEAAAAGAAEAAwACAAMAAAAGAAIAAAABAAEAAAAGAAMAAwAFAAQAAAAGAAQAAAABAAEAAAAGAAUAAwAFAAQAAAAGAAYAAAABAAEAAAAGAAcAAwACAAMAAAAGAAgAAAABAAEAAAAGAAkAAwAFAAQAAAAGAAoAAAABAAEAAAAGAAsAAwAFAAQAAAAGAAwAAAABAAEAAAAGAA0AAwACAAMAAAAGAA8AAwACAAMAAAAGABAAAAABAAEAAAAGABEAAwAFAAQAAAAGABIAAAABAAEAAAAGABMAAwAFAAQAAAAHAAAAAwAFAAQAABAHAAEAAAABAAEAAAAHAAIAAwACAAMAAAAHAAMAAAABAAEAAAAHAAQAAwAFAAQAAAAHAAUAAAABAAEAAAAHAAYAAwAFAAQAABAHAAcAAAABAAEAAAAHAAgAAwACAAMAAAAHAAkAAAABAAEAAAAHAAoAAwAFAAQAAAAHAAsAAAABAAEAAAAHAAwAAwAFAAQAABAHAA0AAAABAAEAAAAHAA4AAwAFAAQAABAHAA8AAAABAAEAAAAHABAAAwACAAMAAAAHABEAAAABAAEAAAAHABIAAwAFAAQAAAAHABMAAAABAAEAAAAIAAAAAAABAAEAAAAIAAEAAwACAAMAAAAIAAIAAAABAAEAAAAIAAMAAwAFAAQAAAAIAAQAAAABAAEAAAAIAAUAAwAFAAQAAAAIAAYAAAABAAEAAAAIAAcAAwACAAMAAAAIAAgAAAABAAEAAAAIAAkAAwAFAAQAAAAIAAoAAAABAAEAAAAIAAsAAwAFAAQAAAAIAAwAAAABAAEAAAAIAA0AAwACAAMAAAAIAA4AAAABAAEAAAAIAA8AAwACAAMAAAAIABAAAAABAAEAAAAIABEAAwAFAAQAAAAIABIAAAABAAEAAAAIABMAAwAFAAQAAAAJAAAAAwAFAAQAABAJAAEAAAABAAEAAAAJAAIAAwACAAMAAAAJAAMAAAABAAEAAAAJAAQAAwAFAAQAAAAJAAUAAAABAAEAAAAJAAYAAwAFAAQAABAJAAcAAAABAAEAAAAJAAgAAwACAAMAAAAJAAkAAAABAAEAAAAJAAoAAwAFAAQAAAAJAAsAAAABAAEAAAAJAAwAAwAFAAQAABAJAA0AAAABAAEAAAAJAA4AAwAFAAQAABAJAA8AAAABAAEAAAAJABAAAwACAAMAAAAJABEAAAABAAEAAAAJABIAAwAFAAQAAAAJABMAAAABAAEAAAAKAAAAAAABAAEAAAAKAAEAAwACAAMAAAAKAAIAAAABAAEAAAAKAAMAAwAFAAQAAAAKAAQAAAABAAEAAAAKAAUAAwAFAAQAAAAKAAYAAAABAAEAAAAKAAcAAwACAAMAAAAKAAgAAAABAAEAAAAKAAkAAwAFAAQAAAAKAAoAAAABAAEAAAAKAAsAAwAFAAQAAAAKAAwAAAABAAEAAAAKAA0AAwACAAMAAAAKAA4AAAABAAEAAAAKAA8AAwACAAMAAAAKABAAAAABAAEAAAAKABEAAwAFAAQAAAAKABIAAAABAAEAAAAKABMAAwAFAAQAAAALAAAAAwAFAAQAABALAAEAAAABAAEAAAALAAIAAwACAAMAAAALAAMAAAABAAEAAAALAAQAAwAFAAQAAAALAAUAAAABAAEAAAALAAYAAwAFAAQAABALAAcAAAABAAEAAAALAAgAAwACAAMAAAALAAkAAAABAAEAAAALAAoAAwAFAAQAAAALAAsAAAABAAEAAAALAAwAAwAFAAQAABALAA0AAAABAAEAAAALAA4AAwAFAAQAABALAA8AAAABAAEAAAALABAAAwACAAMAAAALABEAAAABAAEAAAALABIAAwAFAAQAAAALABMAAAABAAEAAAAMAAAAAAABAAEAAAAMAAEAAwACAAMAAAAMAAIAAAABAAEAAAAMAAMAAwAFAAQAAAAMAAQAAAABAAEAAAAMAAUAAwAFAAQAAAAMAAYAAAABAAEAAAAMAAcAAwACAAMAAAAMAAgAAAABAAEAAAAMAAkAAwAFAAQAAAAMAAoAAAABAAEAAAAMAAsAAwAFAAQAAAAMAAwAAAABAAEAAAAMAA0AAwACAAMAAAAMAA4AAAABAAEAAAAMAA8AAwACAAMAAAAMABAAAAABAAEAAAAMABEAAwAFAAQAAAAMABIAAAABAAEAAAAMABMAAwAFAAQAAAANAAAAAwAFAAQAABANAAEAAAABAAEAAAANAAIAAwACAAMAAAANAAMAAAABAAEAAAANAAQAAwAFAAQAAAANAAUAAAABAAEAAAANAAYAAwAFAAQAABANAAcAAAABAAEAAAANAAgAAwACAAMAAAANAAkAAAABAAEAAAANAAoAAwAFAAQAAAANAAsAAAABAAEAAAANAAwAAwAFAAQAABANAA0AAAABAAEAAAANAA4AAwAFAAQAABANAA8AAAABAAEAAAANABAAAwACAAMAAAANABEAAAABAAEAAAANABIAAwAFAAQAAAANABMAAAABAAEAAAAOAAAAAAABAAEAAAAOAAEAAwACAAMAAAAOAAIAAAABAAEAAAAOAAMAAwAFAAQAAAAOAAQAAAABAAEAAAAOAAUAAwAFAAQAAAAOAAYAAAABAAEAAAAOAAcAAwACAAMAAAAOAAgAAAABAAEAAAAOAAkAAwAFAAQAAAAOAAoAAAABAAEAAAAOAAsAAwAFAAQAAAAOAAwAAAABAAEAAAAOAA0AAwACAAMAAAAOAA4AAAABAAEAAAAOAA8AAwACAAMAAAAOABAAAAABAAEAAAAOABEAAwAFAAQAAAAOABIAAAABAAEAAAAOABMAAwAFAAQAAAAPAAAAAwAFAAQAABAPAAEAAAABAAEAAAAPAAIAAwACAAMAAAAPAAMAAAABAAEAAAAPAAQAAwAFAAQAAAAPAAUAAAABAAEAAAAPAAYAAwAFAAQAABAPAAcAAAABAAEAAAAPAAgAAwACAAMAAAAPAAkAAAABAAEAAAAPAAoAAwAFAAQAAAAPAAsAAAABAAEAAAAPAAwAAwAFAAQAABAPAA0AAAABAAEAAAAPAA4AAwAFAAQAABAPAA8AAAABAAEAAAAPABAAAwACAAMAAAAPABEAAAABAAEAAAAPABIAAwAFAAQAAAAPABMAAAABAAEAAAAQAAAAAAABAAEAAAAQAAEAAwACAAMAAAAQAAIAAAABAAEAAAAQAAMAAwAFAAQAAAAQAAQAAAABAAEAAAAQAAUAAwAFAAQAAAAQAAYAAAABAAEAAAAQAAcAAwACAAMAAAAQAAgAAAABAAEAAAAQAAkAAwAFAAQAAAAQAAoAAAABAAEAAAAQAAsAAwAFAAQAAAAQAAwAAAABAAEAAAAQAA0AAwACAAMAAAAQAA4AAAABAAEAAAAQAA8AAwACAAMAAAAQABAAAAABAAEAAAAQABEAAwAFAAQAAAAQABIAAAABAAEAAAAQABMAAwAFAAQAAAARAAAAAwAFAAQAABARAAEAAAABAAEAAAARAAIAAwACAAMAAAARAAMAAAABAAEAAAARAAQAAwAFAAQAAAARAAUAAAABAAEAAAARAAYAAwAFAAQAABARAAcAAAABAAEAAAARAAgAAwACAAMAAAARAAkAAAABAAEAAAARAAoAAwAFAAQAAAARAAsAAAABAAEAAAARAAwAAwAFAAQAABARAA0AAAABAAEAAAARAA4AAwAFAAQAABARAA8AAAABAAEAAAARABAAAwACAAMAAAARABEAAAABAAEAAAARABIAAwAFAAQAAAARABMAAAABAAEAAAASAAAAAAABAAEAAAASAAEAAwACAAMAAAASAAIAAAABAAEAAAASAAMAAwAFAAQAAAASAAQAAAABAAEAAAASAAUAAwAFAAQAAAASAAYAAAABAAEAAAASAAcAAwACAAMAAAASAAgAAAABAAEAAAASAAkAAwAFAAQAAAASAAoAAAABAAEAAAASAAsAAwAFAAQAAAASAAwAAAABAAEAAAASAA0AAwACAAMAAAASAA4AAAABAAEAAAASAA8AAwACAAMAAAASABAAAAABAAEAAAASABEAAwAFAAQAAAASABIAAAABAAEAAAASABMAAwAFAAQAAAATAAAAAwAFAAQAABATAAEAAAABAAEAAAATAAIAAwACAAMAAAATAAMAAAABAAEAAAATAAQAAwAFAAQAAAATAAUAAAABAAEAAAATAAYAAwAFAAQAABATAAcAAAABAAEAAAATAAgAAwACAAMAAAATAAkAAAABAAEAAAATAAoAAwAFAAQAAAATAAsAAAABAAEAAAATAAwAAwAFAAQAABATAA0AAAABAAEAAAATAA4AAwAFAAQAABATAA8AAAABAAEAAAATABAAAwACAAMAAAATABEAAAABAAEAAAATABIAAwAFAAQAAAATABMAAAABAAEAAAADAAAAAwAFAAQAABADAAEAAAABAAEAAAADAAIAAwACAAMAAAAEAAAAAAABAAEAAAAEAAEAAwACAAMAAAAEAAIAAAABAAEAAAACAAAAAAABAAEAAAACAAEAAwACAAMAAAACAAIAAAABAAEAAAAGAA4AAAABAAEAAAAEABMAAwAFAAQAAAA=")
+tile_set = SubResource("TileSet_k1jnv")
+
+[node name="Camera2D" type="Camera2D" parent="TileMapLayer"]
+position = Vector2(575, 324)
+
+[node name="Control" type="Control" parent="TileMapLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="TileMapLayer/Control"]
+layout_mode = 0
+offset_left = 641.0
+offset_top = 4.0
+offset_right = 1154.0
+offset_bottom = 642.0
+color = Color(0.435192, 0.435192, 0.435192, 1)
+
+[node name="Label" type="Label" parent="TileMapLayer/Control/ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0467836
+anchor_top = -0.0125392
+anchor_right = 0.042885
+anchor_bottom = -0.0125392
+offset_left = 30.0
+offset_top = 31.0
+offset_right = 479.0
+offset_bottom = 108.0
+theme_override_fonts/font = ExtResource("3_kah33")
+theme_override_font_sizes/font_size = 56
+text = "Current Player: 1"
+metadata/_edit_use_anchors_ = true
+
+[node name="End Turn" type="Button" parent="TileMapLayer/Control/ColorRect"]
+layout_mode = 0
+offset_left = 138.0
+offset_top = 501.0
+offset_right = 355.0
+offset_bottom = 573.0
+theme_override_fonts/font = ExtResource("3_kah33")
+theme_override_font_sizes/font_size = 46
+text = "End Turn"
+
+[node name="Control" type="Control" parent="TileMapLayer/Control/ColorRect"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 42.0
+offset_top = 109.0
+offset_right = 470.0
+offset_bottom = 279.0
+
+[node name="Label" type="Label" parent="TileMapLayer/Control/ColorRect/Control"]
+layout_mode = 0
+offset_left = 161.0
+offset_top = 6.0
+offset_right = 265.0
+offset_bottom = 39.0
+text = "SCORES"
+label_settings = SubResource("LabelSettings_6a8qt")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Player1" type="Label" parent="TileMapLayer/Control/ColorRect/Control/Label"]
+layout_mode = 0
+offset_left = -135.0
+offset_top = 53.0
+offset_right = 15.0
+offset_bottom = 86.0
+text = "PLAYER 1: 0"
+label_settings = SubResource("LabelSettings_i2ov8")
+
+[node name="Player2" type="Label" parent="TileMapLayer/Control/ColorRect/Control/Label"]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 53.0
+offset_right = 251.0
+offset_bottom = 86.0
+text = "PLAYER 2: 0"
+label_settings = SubResource("LabelSettings_i2ov8")
+
+[node name="Player3" type="Label" parent="TileMapLayer/Control/ColorRect/Control/Label"]
+layout_mode = 0
+offset_left = -135.0
+offset_top = 120.0
+offset_right = 26.0
+offset_bottom = 153.0
+text = "PLAYER 3: 0"
+label_settings = SubResource("LabelSettings_i2ov8")
+
+[node name="Player4" type="Label" parent="TileMapLayer/Control/ColorRect/Control/Label"]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 120.0
+offset_right = 251.0
+offset_bottom = 153.0
+text = "PLAYER 4: 0"
+label_settings = SubResource("LabelSettings_i2ov8")
+
+[node name="Player" type="Node2D" parent="."]
+position = Vector2(48, 16)
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+position = Vector2(0, 1.19209e-07)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_56haj")
+
+[node name="Player2" type="Node2D" parent="."]
+position = Vector2(48, 16)
+
+[node name="Sprite2D" type="Sprite2D" parent="Player2"]
+scale = Vector2(0.046176, 0.114286)
+texture = ExtResource("6_wpb5i")
+
+[node name="Player3" type="Node2D" parent="."]
+position = Vector2(48, 16)
+
+[node name="Sprite2D" type="Sprite2D" parent="Player3"]
+scale = Vector2(0.046176, 0.114286)
+texture = ExtResource("6_wpb5i")
+
+[node name="Player4" type="Node2D" parent="."]
+position = Vector2(48, 16)
+
+[node name="Sprite2D" type="Sprite2D" parent="Player4"]
+scale = Vector2(0.046176, 0.114286)
+texture = ExtResource("6_wpb5i")
+
+[node name="Virus" type="Node2D" parent="."]
+position = Vector2(176, 112)
+scale = Vector2(0.0704549, 0.0856672)
+
+[node name="Sprite2D" type="Sprite2D" parent="Virus"]
+position = Vector2(-0.000222206, 3.43323e-05)
+scale = Vector2(0.137634, 0.109864)
+texture = ExtResource("8_i2ov8")
+
+[node name="Virus2" type="Node2D" parent="."]
+position = Vector2(188.4, 121.595)
+scale = Vector2(0.00496389, 0.00733887)
+
+[node name="Sprite2D" type="Sprite2D" parent="Virus2"]
+position = Vector2(-0.000222206, 3.43323e-05)
+scale = Vector2(0.137634, 0.109864)
+texture = ExtResource("8_i2ov8")
+
+[node name="Virus3" type="Node2D" parent="."]
+position = Vector2(176, 112)
+scale = Vector2(0.0704549, 0.0856672)
+
+[node name="Sprite2D" type="Sprite2D" parent="Virus3"]
+position = Vector2(-0.000222206, 3.43323e-05)
+scale = Vector2(0.137634, 0.109864)
+texture = ExtResource("8_i2ov8")
+
+[node name="Virus4" type="Node2D" parent="."]
+position = Vector2(176, 112)
+scale = Vector2(0.0704549, 0.0856672)
+
+[node name="Sprite2D" type="Sprite2D" parent="Virus4"]
+position = Vector2(-0.000222206, 3.43323e-05)
+scale = Vector2(0.137634, 0.109864)
+texture = ExtResource("8_i2ov8")
+
+[node name="Virus5" type="Node2D" parent="."]
+position = Vector2(176, 112)
+scale = Vector2(0.0704549, 0.0856672)
+
+[node name="Sprite2D" type="Sprite2D" parent="Virus5"]
+position = Vector2(-0.000222206, 3.43323e-05)
+scale = Vector2(0.137634, 0.109864)
+texture = ExtResource("8_i2ov8")
+
+[node name="Virus6" type="Node2D" parent="."]
+position = Vector2(176, 112)
+scale = Vector2(0.0704549, 0.0856672)
+
+[node name="Sprite2D" type="Sprite2D" parent="Virus6"]
+position = Vector2(-0.000222206, 3.43323e-05)
+scale = Vector2(0.137634, 0.109864)
+texture = ExtResource("8_i2ov8")
+
+[node name="Virus7" type="Node2D" parent="."]
+position = Vector2(176, 112)
+scale = Vector2(0.0704549, 0.0856672)
+
+[node name="Sprite2D" type="Sprite2D" parent="Virus7"]
+position = Vector2(-0.000222206, 3.43323e-05)
+scale = Vector2(0.137634, 0.109864)
+texture = ExtResource("8_i2ov8")
+
+[node name="DataNode" type="Node2D" parent="."]
+position = Vector2(176, 48)
+
+[node name="Sprite2D" type="Sprite2D" parent="DataNode"]
+position = Vector2(3.8147e-06, 0)
+scale = Vector2(0.0625, 0.0625)
+texture = ExtResource("8_aw77x")
+
+[node name="DataNode2" type="Node2D" parent="."]
+position = Vector2(176, 48)
+
+[node name="Sprite2D" type="Sprite2D" parent="DataNode2"]
+position = Vector2(3.8147e-06, 0)
+scale = Vector2(0.0625, 0.0625)
+texture = ExtResource("8_aw77x")
+
+[node name="Area2D" type="Area2D" parent="."]
+z_index = 2
+position = Vector2(96, 64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+z_index = 3
+position = Vector2(224, 256)
+shape = SubResource("RectangleShape2D_6a8qt")
+
+[connection signal="pressed" from="TileMapLayer/Control/ColorRect/End Turn" to="." method="_on_end_turn_pressed"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

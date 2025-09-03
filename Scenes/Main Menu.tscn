@@ -71,5 +71,5 @@ theme_override_fonts/font = ExtResource("1_totuj")
 theme_override_font_sizes/font_size = 146
 text = "Digital Pursuit"
 
-[connection signal="pressed" from="Start" to="." method="_on_Start_pressed"]
-[connection signal="pressed" from="Exit" to="." method="_on_Exit_pressed"]
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
