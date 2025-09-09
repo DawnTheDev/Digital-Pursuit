@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var tilemap = $TileMapLayer
-@onready var pIndicator = $TileMapLayer/Control/ColorRect/Label
+@onready var pIndicator = $TileMapLayer/Control/ColorRect/PIn
 
 @onready var virusNodes = [$Virus, $Virus2, $Virus3]
 @onready var virusSprites = [$Virus/Sprite2D, $Virus2/Sprite2D, $Virus3/Sprite2D]
@@ -11,6 +11,12 @@ extends Node2D
 	$TileMapLayer/Control/ColorRect/Control/Label/Player1,
 	$TileMapLayer/Control/ColorRect/Control/Label/Player2
 	]
+
+@onready var ScanButton = $TileMapLayer/Control/ColorRect/Cards/Button
+@onready var FirewallButton = $TileMapLayer/Control/ColorRect/Cards/Button2
+
+@onready var ScanAmountIN = $TileMapLayer/Control/ColorRect/Cards/Button/Amount
+@onready var FirewallAmountIN = $TileMapLayer/Control/ColorRect/Cards/Button2/Amount
 
 var GameoverScene = "res://Scenes/Game over.tscn"
 var WinScene = "res://Scenes/Winning screen.tscn"
@@ -27,15 +33,19 @@ var End: bool
 var inArea: bool
 
 var buttonCD: bool
+var scanUsed: bool
+var firewallUsed: bool
 
 var activePlr = 1
 var DisplayPlr = 1
 var PlayerScores = [0, 0]
 
-signal UpdateScore(Index: int)
-
 func _ready():
 	Singleton.PlayerScores = [0, 0, 0, 0]
+	for i in range(Singleton.PlayerPowerUps.size()):
+		Singleton.PlayerPowerUps[i] = [0, 0]
+	
+	print(Singleton.PlayerPowerUps)
 	
 	Plr1Movement = await PlayerMovement.new(tilemap, $Player)
 	Plr1Movement._init(tilemap, $Player)
@@ -71,6 +81,8 @@ func _input(event):
 		
 		if activePlr == 1:
 			debounce = true
+			firewallUsed = false
+			scanUsed = false
 			print("PLAYER 1")
 			id = Plr1Movement.setpathid(
 				tilemap.local_to_map($Player.global_position),
@@ -90,6 +102,8 @@ func _input(event):
 		else:
 			print("PLAYER 2")
 			debounce = true
+			firewallUsed = false
+			scanUsed = false
 			id = Plr2Movement.setpathid(
 				tilemap.local_to_map($Player2.global_position),
 				tilemap.local_to_map(get_global_mouse_position())
@@ -129,10 +143,83 @@ func _input(event):
 func _physics_process(delta: float):
 	if End: return
 	
+	if not scanUsed:
+		if activePlr == 1:
+			
+			if Singleton.PlayerPowerUps[0][0] == 1:
+				ScanButton.visible = true
+				ScanAmountIN.visible = false
+			
+			elif Singleton.PlayerPowerUps[0][0] > 0:
+				ScanButton.visible = true
+				ScanAmountIN.visible = true
+				ScanAmountIN.text = "X" + str(Singleton.PlayerPowerUps[0][0])
+				
+			else:
+				ScanButton.visible = false
+				ScanAmountIN.visible = false
+			
+		elif activePlr == 2:
+			
+			if Singleton.PlayerPowerUps[1][0] == 1:
+				ScanButton.visible = true
+				ScanAmountIN.visible = false
+			
+			elif Singleton.PlayerPowerUps[1][0] > 0:
+				ScanButton.visible = true
+				ScanAmountIN.visible = true
+				ScanAmountIN.text = "X" + str(Singleton.PlayerPowerUps[1][0])
+				
+			else:
+				ScanButton.visible = false
+				ScanAmountIN.visible = false
+		
+		else:
+			ScanButton.visible = false
+	
+	if not firewallUsed:
+		if activePlr == 1:
+			
+			if Singleton.PlayerPowerUps[0][1] == 1:
+				FirewallButton.visible = true
+				FirewallAmountIN.visible = false
+			
+			elif Singleton.PlayerPowerUps[0][1] > 0:
+				FirewallButton.visible = true
+				FirewallAmountIN.visible = true
+				FirewallAmountIN.text = "X" + str(Singleton.PlayerPowerUps[0][1])
+				
+			else:
+				FirewallButton.visible = false
+				FirewallAmountIN.visible = false
+			
+		elif activePlr == 2:
+			
+			if Singleton.PlayerPowerUps[1][1] == 1:
+				FirewallButton.visible = true
+				FirewallAmountIN.visible = false
+			
+			elif Singleton.PlayerPowerUps[1][1] > 0:
+				FirewallButton.visible = true
+				FirewallAmountIN.visible = true
+				FirewallAmountIN.text = "X" + str(Singleton.PlayerPowerUps[1][1])
+				
+			else:
+				FirewallButton.visible = false
+				FirewallAmountIN.visible = false
+		
+		else:
+			FirewallButton.visible = false
+	
 	for i in range(ScoreLabels.size()):
 		ScoreLabels[i].text = "Player " + str(i + 1) + ":  " + str(Singleton.PlayerScores[i])
 	
-	pIndicator.text = "Current Player: " + str(DisplayPlr)
+	if activePlr == 1:
+		pIndicator.texture = load("res://Images/character blue.png")
+	elif activePlr == 2:
+		pIndicator.texture = load("res://Images/character Green.png")
+	elif activePlr == 3:
+		pIndicator.texture = load("res://Images/Virus Digital.png")
 	
 	if not VControllers[0].Alive and not VControllers[1].Alive and not VControllers[2].Alive:
 		EndGame(WinScene)
@@ -144,6 +231,8 @@ func _on_end_turn_pressed() -> void:
 	if buttonCD: return
 	
 	if activePlr == 1:
+		scanUsed = false
+		firewallUsed = false
 		Plr1Movement.setturn(false)
 		Plr2Movement.setturn(true)
 		activePlr = 2
@@ -170,9 +259,13 @@ func _on_end_turn_pressed() -> void:
 		Plr2Movement.setturn(false)
 		activePlr = 1
 		DisplayPlr = 1
+		
+		scanUsed = false
+		firewallUsed = false
 	
 	await get_tree().create_timer(.5).timeout
 	buttonCD = false
+	
 
 func EndGame(scene):
 	for i in VControllers:
@@ -197,6 +290,17 @@ func _on_area_2d_mouse_exited() -> void:
 	print("mouse exitted")
 
 
-func _on_update_score(Index: int) -> void:
-	PlayerScores[Index] += 1
-	ScoreLabels[Index].text = "PLAYER " + str(Index + 1) + ": " + str(PlayerScores[Index])
+func _on_button_pressed() -> void:
+	scanUsed = true
+	Singleton.PlayerPowerUps[activePlr - 1][0] -= 1
+	ScanButton.visible = false
+	for nodes in VControllers:
+		nodes.scanactivate()
+
+
+func _on_button_2_pressed() -> void:
+	firewallUsed = true
+	Singleton.PlayerPowerUps[activePlr - 1][1] -= 1
+	FirewallButton.visible = false
+	for nodes in VControllers:
+		nodes.firewallactivate()

@@ -7,6 +7,9 @@ var tilemap: TileMapLayer
 var path: Array[Vector2i] = []
 var pNodes
 
+var scanActive: bool
+var firewallActive: int
+
 var IsMyTurn: bool
 var spawned = false
 var PLabel
@@ -36,7 +39,7 @@ func _init(_tilemap: TileMapLayer, _target):
 	
 	while not spawned:
 		await randomSpawn()
-		print("EXECUTED")
+		#print("EXECUTED")
 	
 
 func setVirus(active: Array, Sprite: Sprite2D):
@@ -61,7 +64,18 @@ func setturn(active: bool):
 	IsMyTurn = active
 
 func calpath(id):
-	path = id
+	if firewallActive > 0:
+		#print(str(id[0]), tilemap.local_to_map(Vector2i(CVTarget.global_position)))
+		if id[0] == tilemap.local_to_map(Vector2i(CVTarget.global_position)):
+			#print("DETECTED")
+			path = []
+		else:
+			path = id
+		
+		firewallActive -= 1
+		print(firewallActive)
+	else:
+		path = id
 	print("CALCULAED PATH: " + str(path))
 	#print(IsMyTurn)
 	counted = false
@@ -73,12 +87,22 @@ func _physics_process(delta):
 	if End: return
 	if IsVirus and not debounce:
 		debounce = true
+		
+		if scanActive and Alive:
+			TurnVisible = 0
+			target.visible = true
+			scanActive = false
+		
 		for i in range(pNodes.size()):
 			if target.global_position == pNodes[i].global_position and Alive:
 				target.visible = true
 				#PLabel[i].text = "Player " + str(i + 1) + ": " + str(1)
+				
+				var rng = randi_range(0, 1)
+				Singleton.PlayerPowerUps[i][rng] += 1
+				
 				Singleton.PlayerScores[i] += 1
-				VSprite.texture = load("res://Images/Virus Digital Dead.png")
+				VSprite.texture = load("res://Images/Virus-Digital-Dead2.png")
 				Alive = false
 				await get_tree().create_timer(1.5).timeout
 				
@@ -126,7 +150,7 @@ func randomSpawn():
 	for i in alltiles:
 		var rng = randi_range(1, 500)
 		
-		if rng == 1 and not spawned:
+		if rng == 1 and not spawned and randi_range(1, 3) == 1:
 			target.position = tilemap.map_to_local(i)
 			spawned = true
 
@@ -139,3 +163,15 @@ func getnewtg():
 		CVTarget = newCVTarget
 		#print("Got new target")
 		return
+
+func scanactivate():
+	scanActive = true
+
+func firewallactivate():
+	firewallActive = 3
+	
+	#for i in VTarget:
+	#	for tiles in tilemap.get_used_cells():
+	#		if tiles == tilemap.local_to_map(i.global_position):
+	#			print(tiles)
+	#			astar.set_point_solid(tiles, true)

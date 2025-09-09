@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var tilemap = $TileMapLayer
-@onready var pIndicator = $TileMapLayer/Control/ColorRect/Label
+@onready var pIndicator = $TileMapLayer/Control/ColorRect/PIn
 
 @onready var virusNodes = [$Virus, $Virus2, $Virus3, $Virus4, $Virus5, $Virus6, $Virus7]
 @onready var virusSprites = [
@@ -68,6 +68,10 @@ func _ready():
 	
 	PControllers[0].setturn(true)
 	
+	#while true:
+		#await get_tree().create_timer(.5).timeout
+		#print("ACTIVE PLR: " + str(activePlr))
+		#print("DISPLAY PLR: " + str(DisplayPlr))
 
 func _input(event):
 	if event.is_action_pressed("click") and not debounce and not End:
@@ -87,7 +91,7 @@ func _input(event):
 		await get_tree().create_timer(1).timeout
 		
 		if activePlr == 3:
-			DisplayPlr = "Viruses"
+			DisplayPlr = 5
 			
 			for i in range(virusNodes.size()):
 				
@@ -101,8 +105,8 @@ func _input(event):
 				
 				VControllers[i].calpath(VID)
 			
-			await get_tree().create_timer(.75)
-		
+			await get_tree().create_timer(.75).timeout
+			
 			activePlr = (activePlr + 1) % PControllers.size()
 			PControllers[activePlr].setturn(true)
 			DisplayPlr = activePlr + 1
@@ -122,10 +126,20 @@ func _input(event):
 
 func _physics_process(delta: float):
 	if End: return
-	pIndicator.text = "Current Player: " + str(DisplayPlr)
 	
 	for i in range(ScoreLabels.size()):
 		ScoreLabels[i].text = "Player " + str(i + 1) + ":  " + str(Singleton.PlayerScores[i])
+	
+	if DisplayPlr == 1:
+		pIndicator.texture = load("res://Images/character blue.png")
+	elif DisplayPlr == 2:
+		pIndicator.texture = load("res://Images/character Green.png")
+	elif DisplayPlr == 3:
+		pIndicator.texture = load("res://Images/character yellow.png")
+	elif DisplayPlr == 4:
+		pIndicator.texture = load("res://Images/Player Red.png")
+	elif DisplayPlr == 5:
+		pIndicator.texture = load("res://Images/Virus Digital.png")
 	
 	var count = 0
 	for i in range(VControllers.size()):
@@ -143,7 +157,7 @@ func _on_end_turn_pressed() -> void:
 	buttonCD = true
 	
 	if activePlr == 3:
-		DisplayPlr = "Viruses"
+		DisplayPlr = 5
 		
 		for i in range(virusNodes.size()):
 			
@@ -157,11 +171,11 @@ func _on_end_turn_pressed() -> void:
 				
 			VControllers[i].calpath(VID)
 		
-		await get_tree().create_timer(.75)
+		await get_tree().create_timer(.75).timeout
 		
 		activePlr = (activePlr + 1) % PControllers.size()
 		PControllers[activePlr].setturn(true)
-		DisplayPlr = activePlr
+		DisplayPlr = activePlr + 1
 		
 	else:
 		

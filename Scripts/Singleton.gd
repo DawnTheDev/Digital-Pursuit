@@ -4,3 +4,9 @@ var maxplrcount: int
 var curplr: int
 
 var PlayerScores = [0, 0, 0, 0]
+var PlayerPowerUps = [
+	[0, 0],
+	[0, 0],
+	[0, 0],
+	[0, 0]
+]

@@ -1,13 +1,15 @@
-[gd_scene load_steps=15 format=4 uid="uid://byctv1o3ajb6f"]
+[gd_scene load_steps=18 format=4 uid="uid://byctv1o3ajb6f"]
 
 [ext_resource type="Texture2D" uid="uid://d2pchiuna4e8" path="res://MAP/images.jpg" id="1_6a8qt"]
 [ext_resource type="Script" uid="uid://njrkucjpnu1k" path="res://Scripts/Main4P.gd" id="1_i2ov8"]
 [ext_resource type="Texture2D" uid="uid://ca2m07ittg1q5" path="res://MAP/images.png" id="2_i2ov8"]
 [ext_resource type="FontFile" uid="uid://5pm6sclng1ir" path="res://Fonts/Square.ttf" id="3_kah33"]
-[ext_resource type="Texture2D" uid="uid://o4f5mw72rw0w" path="res://Images/icon.svg" id="5_56haj"]
-[ext_resource type="Texture2D" uid="uid://j130nmryflsd" path="res://MAP/checkerboard-banner-pale-green-white-260nw-2107002719.webp" id="6_wpb5i"]
+[ext_resource type="Texture2D" uid="uid://dn45funkqb7dg" path="res://Images/character blue.png" id="5_kah33"]
+[ext_resource type="Texture2D" uid="uid://csaicngq3nbll" path="res://Images/character Green.png" id="6_8to4y"]
+[ext_resource type="Texture2D" uid="uid://b70ajsbljr4vj" path="res://Images/character yellow.png" id="7_56haj"]
 [ext_resource type="Texture2D" uid="uid://djwhdmbmqr2ag" path="res://Images/the-server-4.webp" id="8_aw77x"]
 [ext_resource type="Texture2D" uid="uid://bbkhbq4fqhisx" path="res://Images/Virus Digital.png" id="8_i2ov8"]
+[ext_resource type="Texture2D" uid="uid://dh5hgtyowfudw" path="res://Images/Player Red.png" id="8_wpb5i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rceh8"]
 texture = ExtResource("1_6a8qt")
@@ -262,6 +264,9 @@ font_size = 30
 font = ExtResource("3_kah33")
 font_size = 30
 
+[sub_resource type="LabelSettings" id="LabelSettings_j7obd"]
+font_size = 35
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6a8qt"]
 size = Vector2(640, 640)
 
@@ -289,22 +294,6 @@ offset_top = 4.0
 offset_right = 1154.0
 offset_bottom = 642.0
 color = Color(0.435192, 0.435192, 0.435192, 1)
-
-[node name="Label" type="Label" parent="TileMapLayer/Control/ColorRect"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.0467836
-anchor_top = -0.0125392
-anchor_right = 0.042885
-anchor_bottom = -0.0125392
-offset_left = 30.0
-offset_top = 31.0
-offset_right = 479.0
-offset_bottom = 108.0
-theme_override_fonts/font = ExtResource("3_kah33")
-theme_override_font_sizes/font_size = 56
-text = "Current Player: 1"
-metadata/_edit_use_anchors_ = true
 
 [node name="End Turn" type="Button" parent="TileMapLayer/Control/ColorRect"]
 layout_mode = 0
@@ -371,34 +360,54 @@ offset_bottom = 153.0
 text = "PLAYER 4: 0"
 label_settings = SubResource("LabelSettings_i2ov8")
 
+[node name="Label" type="Label" parent="TileMapLayer/Control/ColorRect"]
+layout_mode = 0
+offset_left = 98.0
+offset_top = 42.0
+offset_right = 350.0
+offset_bottom = 86.0
+theme_override_fonts/font = ExtResource("3_kah33")
+theme_override_font_sizes/font_size = 56
+text = "Current Turn: "
+label_settings = SubResource("LabelSettings_j7obd")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="PIn" type="Sprite2D" parent="TileMapLayer/Control/ColorRect"]
+position = Vector2(381, 61)
+scale = Vector2(0.030437, 0.0297224)
+texture = ExtResource("5_kah33")
+
 [node name="Player" type="Node2D" parent="."]
 position = Vector2(48, 16)
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
-position = Vector2(0, 1.19209e-07)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("5_56haj")
+scale = Vector2(0.0164863, 0.0170032)
+texture = ExtResource("5_kah33")
 
 [node name="Player2" type="Node2D" parent="."]
 position = Vector2(48, 16)
 
 [node name="Sprite2D" type="Sprite2D" parent="Player2"]
-scale = Vector2(0.046176, 0.114286)
-texture = ExtResource("6_wpb5i")
+position = Vector2(1.01328e-06, 0.499997)
+scale = Vector2(0.0164863, 0.0164718)
+texture = ExtResource("6_8to4y")
 
 [node name="Player3" type="Node2D" parent="."]
 position = Vector2(48, 16)
 
 [node name="Sprite2D" type="Sprite2D" parent="Player3"]
-scale = Vector2(0.046176, 0.114286)
-texture = ExtResource("6_wpb5i")
+scale = Vector2(0.0164863, 0.0170032)
+texture = ExtResource("7_56haj")
 
 [node name="Player4" type="Node2D" parent="."]
 position = Vector2(48, 16)
 
 [node name="Sprite2D" type="Sprite2D" parent="Player4"]
-scale = Vector2(0.046176, 0.114286)
-texture = ExtResource("6_wpb5i")
+position = Vector2(0, -3.8147e-06)
+scale = Vector2(0.0164863, 0.0170032)
+texture = ExtResource("8_wpb5i")
 
 [node name="Virus" type="Node2D" parent="."]
 position = Vector2(176, 112)
@@ -410,12 +419,12 @@ scale = Vector2(0.137634, 0.109864)
 texture = ExtResource("8_i2ov8")
 
 [node name="Virus2" type="Node2D" parent="."]
-position = Vector2(188.4, 121.595)
+position = Vector2(176, 112)
 scale = Vector2(0.00496389, 0.00733887)
 
 [node name="Sprite2D" type="Sprite2D" parent="Virus2"]
-position = Vector2(-0.000222206, 3.43323e-05)
-scale = Vector2(0.137634, 0.109864)
+position = Vector2(0.000488281, -0.000244141)
+scale = Vector2(1.9535, 1.28245)
 texture = ExtResource("8_i2ov8")
 
 [node name="Virus3" type="Node2D" parent="."]

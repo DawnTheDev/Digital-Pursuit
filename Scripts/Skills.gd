@@ -1,6 +1,3 @@
 extends Node
 
-class_name SkillHandler
-
-func _init():
-	pass
+var Cards = ["Firewall", "Nothing"]
