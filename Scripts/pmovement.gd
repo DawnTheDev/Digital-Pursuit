@@ -49,13 +49,13 @@ func setVirus(active: Array, Sprite: Sprite2D):
 	CVTarget = active.pick_random()
 	VSprite = Sprite
 
-func setpathid(start, goal):
+func setpathid(start, goal, amount: int):
 	#print(str(start) + " " + str(goal))
 	if not IsVirus:
-		return astar.get_id_path(start, goal).slice(1,3)
+		return astar.get_id_path(start, goal).slice(1,amount + 1)
 		
 	else:
-		return astar.get_id_path(start, goal).slice(1,2)
+		return astar.get_id_path(start, goal).slice(1,amount + 1)
 
 func setplayers(array):
 	pNodes = array
@@ -98,7 +98,7 @@ func _physics_process(delta):
 				target.visible = true
 				#PLabel[i].text = "Player " + str(i + 1) + ": " + str(1)
 				
-				var rng = randi_range(0, 1)
+				var rng = randi_range(0, 2)
 				Singleton.PlayerPowerUps[i][rng] += 1
 				
 				Singleton.PlayerScores[i] += 1
@@ -127,7 +127,7 @@ func _physics_process(delta):
 	#print(path)
 	
 	var tpos = tilemap.map_to_local(path.front())
-	target.position = target.position.move_toward(tpos, 2)
+	target.position = target.position.move_toward(tpos, 3)
 	
 	if IsVirus and not counted:
 		if TurnVisible == 0:

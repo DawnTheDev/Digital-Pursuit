@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://byctv1o3ajb6f"]
+[gd_scene load_steps=33 format=4 uid="uid://byctv1o3ajb6f"]
 
 [ext_resource type="Script" uid="uid://fcq20bqys2vd" path="res://Scripts/Main2P.gd" id="1_gssjv"]
 [ext_resource type="Texture2D" uid="uid://d2pchiuna4e8" path="res://MAP/images.jpg" id="2_4exio"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b6fh7j7l5w40u" path="res://Images/FIREWALL CARD.png" id="6_kn6tm"]
 [ext_resource type="Texture2D" uid="uid://sd3qjbjlpnsg" path="res://Images/Scan card.png" id="6_rceh8"]
 [ext_resource type="Texture2D" uid="uid://bbkhbq4fqhisx" path="res://Images/Virus Digital.png" id="7_4exio"]
+[ext_resource type="Texture2D" uid="uid://ginhqg2ajs7w" path="res://Images/overclock.png" id="8_rceh8"]
 [ext_resource type="Texture2D" uid="uid://djwhdmbmqr2ag" path="res://Images/the-server-4.webp" id="9_kn6tm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rpobe"]
@@ -434,6 +435,18 @@ font_size = 20
 font = ExtResource("4_4exio")
 font_size = 30
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w0gig"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vfn53"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j6mec"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ijwas"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sq8ho"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ljtxc"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4exio"]
 size = Vector2(448, 512)
 
@@ -546,9 +559,9 @@ label_settings = SubResource("LabelSettings_rceh8")
 [node name="Button" type="Button" parent="TileMapLayer/Control/ColorRect/Cards"]
 z_index = 1
 layout_mode = 0
-offset_left = 133.0
+offset_left = 62.0
 offset_top = 44.0
-offset_right = 217.0
+offset_right = 146.0
 offset_bottom = 161.0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_rceh8")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_b84ns")
@@ -576,9 +589,9 @@ label_settings = SubResource("LabelSettings_b84ns")
 [node name="Button2" type="Button" parent="TileMapLayer/Control/ColorRect/Cards"]
 z_index = 1
 layout_mode = 0
-offset_left = 238.0
+offset_left = 167.0
 offset_top = 46.0
-offset_right = 320.0
+offset_right = 249.0
 offset_bottom = 160.0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_rceh8")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_b84ns")
@@ -594,6 +607,34 @@ scale = Vector2(0.0685208, 0.0678449)
 texture = ExtResource("6_kn6tm")
 
 [node name="Amount" type="Label" parent="TileMapLayer/Control/ColorRect/Cards/Button2"]
+visible = false
+layout_mode = 0
+offset_left = 62.0
+offset_top = 103.0
+offset_right = 103.0
+offset_bottom = 141.0
+text = "X2"
+label_settings = SubResource("LabelSettings_b84ns")
+
+[node name="Button3" type="Button" parent="TileMapLayer/Control/ColorRect/Cards"]
+layout_mode = 0
+offset_left = 275.0
+offset_top = 46.0
+offset_right = 357.0
+offset_bottom = 160.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_w0gig")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_vfn53")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_j6mec")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ijwas")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_sq8ho")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ljtxc")
+
+[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/Control/ColorRect/Cards/Button3"]
+position = Vector2(41.5, 57)
+scale = Vector2(0.224377, 0.218391)
+texture = ExtResource("8_rceh8")
+
+[node name="Amount" type="Label" parent="TileMapLayer/Control/ColorRect/Cards/Button3"]
 visible = false
 offset_left = 62.0
 offset_top = 103.0
@@ -682,5 +723,6 @@ texture = ExtResource("7_4exio")
 [connection signal="pressed" from="TileMapLayer/Control/ColorRect/End turn" to="." method="_on_end_turn_pressed"]
 [connection signal="pressed" from="TileMapLayer/Control/ColorRect/Cards/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="TileMapLayer/Control/ColorRect/Cards/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="TileMapLayer/Control/ColorRect/Cards/Button3" to="." method="_on_button_3_pressed"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

@@ -23,6 +23,12 @@ extends Node2D
 	
 ]
 
+@onready var ScanButton = $TileMapLayer/Control/ColorRect/Cards/Button
+@onready var FirewallButton = $TileMapLayer/Control/ColorRect/Cards/Button2
+
+@onready var ScanAmountIN = $TileMapLayer/Control/ColorRect/Cards/Button/Amount
+@onready var FirewallAmountIN = $TileMapLayer/Control/ColorRect/Cards/Button2/Amount
+
 var GameoverScene = "res://Scenes/Game over.tscn"
 var WinScene = "res://Scenes/Winning screen.tscn"
 
@@ -36,6 +42,9 @@ var End: bool
 var inArea: bool
 
 var buttonCD: bool
+
+var scanUsed: bool
+var firewallUsed: bool
 
 var activePlr = 0
 var DisplayPlr = 1
@@ -80,6 +89,8 @@ func _input(event):
 			return
 		
 		debounce = true
+		scanUsed = false
+		firewallUsed = false
 		
 		id = PControllers[activePlr].setpathid(
 			tilemap.local_to_map(pNodes[activePlr].global_position),
@@ -112,6 +123,8 @@ func _input(event):
 			DisplayPlr = activePlr + 1
 			
 		else:
+			scanUsed = false
+			firewallUsed = false
 			
 			PControllers[activePlr].setturn(false)
 		
@@ -120,12 +133,46 @@ func _input(event):
 			DisplayPlr = activePlr + 1
 		
 		debounce = false
-		
-		
+	
+	if event.is_action_pressed("debug"):
+			print(Singleton.PlayerPowerUps)
 
 
 func _physics_process(delta: float):
 	if End: return
+	
+	for i in range(4):
+		if i == activePlr:
+			
+			if not scanUsed:
+				
+				if Singleton.PlayerPowerUps[i][0] == 1:
+					ScanButton.visible = true
+					ScanAmountIN.visible = false
+				
+				elif Singleton.PlayerPowerUps[i][0] > 0:
+					ScanButton.visible = true
+					ScanAmountIN.visible = true
+					ScanAmountIN.text = "X" + str(Singleton.PlayerPowerUps[0][0])
+				
+				else:
+					ScanButton.visible = false
+					ScanAmountIN.visible = false
+			
+			if not firewallUsed:
+				
+				if Singleton.PlayerPowerUps[i][1] == 1:
+					FirewallButton.visible = true
+					FirewallAmountIN.visible = false
+				
+				elif Singleton.PlayerPowerUps[i][1] > 0:
+					FirewallButton.visible = true
+					FirewallAmountIN.visible = true
+					FirewallAmountIN.text = "X" + str(Singleton.PlayerPowerUps[1][1])
+				
+				else:
+					FirewallButton.visible = false
+					FirewallAmountIN.visible = false
 	
 	for i in range(ScoreLabels.size()):
 		ScoreLabels[i].text = "Player " + str(i + 1) + ":  " + str(Singleton.PlayerScores[i])
@@ -209,3 +256,20 @@ func _on_area_2d_mouse_entered() -> void:
 func _on_area_2d_mouse_exited() -> void:
 	inArea = false
 	print("mouse exitted")
+
+
+func _on_button_pressed() -> void:
+	scanUsed = true
+	Singleton.PlayerPowerUps[activePlr][0] -= 1
+	ScanButton.visible = false
+	for nodes in VControllers:
+		nodes.scanactivate()
+	
+
+
+func _on_button_2_pressed() -> void:
+	firewallUsed = true
+	Singleton.PlayerPowerUps[activePlr][1] -= 1
+	FirewallButton.visible = false
+	for nodes in VControllers:
+		nodes.firewallactivate()

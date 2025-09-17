@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://byctv1o3ajb6f"]
+[gd_scene load_steps=28 format=4 uid="uid://byctv1o3ajb6f"]
 
 [ext_resource type="Texture2D" uid="uid://d2pchiuna4e8" path="res://MAP/images.jpg" id="1_6a8qt"]
 [ext_resource type="Script" uid="uid://njrkucjpnu1k" path="res://Scripts/Main4P.gd" id="1_i2ov8"]
@@ -6,7 +6,9 @@
 [ext_resource type="FontFile" uid="uid://5pm6sclng1ir" path="res://Fonts/Square.ttf" id="3_kah33"]
 [ext_resource type="Texture2D" uid="uid://dn45funkqb7dg" path="res://Images/character blue.png" id="5_kah33"]
 [ext_resource type="Texture2D" uid="uid://csaicngq3nbll" path="res://Images/character Green.png" id="6_8to4y"]
+[ext_resource type="Texture2D" uid="uid://sd3qjbjlpnsg" path="res://Images/Scan card.png" id="6_56haj"]
 [ext_resource type="Texture2D" uid="uid://b70ajsbljr4vj" path="res://Images/character yellow.png" id="7_56haj"]
+[ext_resource type="Texture2D" uid="uid://b6fh7j7l5w40u" path="res://Images/FIREWALL CARD.png" id="7_wpb5i"]
 [ext_resource type="Texture2D" uid="uid://djwhdmbmqr2ag" path="res://Images/the-server-4.webp" id="8_aw77x"]
 [ext_resource type="Texture2D" uid="uid://bbkhbq4fqhisx" path="res://Images/Virus Digital.png" id="8_i2ov8"]
 [ext_resource type="Texture2D" uid="uid://dh5hgtyowfudw" path="res://Images/Player Red.png" id="8_wpb5i"]
@@ -267,6 +269,26 @@ font_size = 30
 [sub_resource type="LabelSettings" id="LabelSettings_j7obd"]
 font_size = 35
 
+[sub_resource type="LabelSettings" id="LabelSettings_aw77x"]
+font = ExtResource("3_kah33")
+font_size = 20
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c317b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x7jwk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_075bn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3pwbu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8qx6t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l2jvp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lixbk"]
+font = ExtResource("3_kah33")
+font_size = 30
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6a8qt"]
 size = Vector2(640, 640)
 
@@ -378,6 +400,85 @@ autowrap_mode = 2
 position = Vector2(381, 61)
 scale = Vector2(0.030437, 0.0297224)
 texture = ExtResource("5_kah33")
+
+[node name="Cards" type="Control" parent="TileMapLayer/Control/ColorRect"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 32.0
+offset_top = 282.0
+offset_right = 487.0
+offset_bottom = 474.0
+
+[node name="Label" type="Label" parent="TileMapLayer/Control/ColorRect/Cards"]
+layout_mode = 0
+offset_left = 127.0
+offset_top = 8.0
+offset_right = 331.0
+offset_bottom = 31.0
+text = "AVAILABLE POWER UPS"
+label_settings = SubResource("LabelSettings_aw77x")
+
+[node name="Button" type="Button" parent="TileMapLayer/Control/ColorRect/Cards"]
+visible = false
+z_index = 1
+layout_mode = 0
+offset_left = 133.0
+offset_top = 44.0
+offset_right = 217.0
+offset_bottom = 161.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_c317b")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_x7jwk")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_075bn")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_3pwbu")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_8qx6t")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_l2jvp")
+
+[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/Control/ColorRect/Cards/Button"]
+z_index = -1
+position = Vector2(39, 59)
+scale = Vector2(0.0685208, 0.0678449)
+texture = ExtResource("6_56haj")
+
+[node name="Amount" type="Label" parent="TileMapLayer/Control/ColorRect/Cards/Button"]
+visible = false
+layout_mode = 0
+offset_left = 62.0
+offset_top = 103.0
+offset_right = 103.0
+offset_bottom = 141.0
+text = "X2"
+label_settings = SubResource("LabelSettings_lixbk")
+
+[node name="Button2" type="Button" parent="TileMapLayer/Control/ColorRect/Cards"]
+visible = false
+z_index = 1
+layout_mode = 0
+offset_left = 238.0
+offset_top = 46.0
+offset_right = 320.0
+offset_bottom = 160.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_c317b")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_x7jwk")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_075bn")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_3pwbu")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_8qx6t")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_l2jvp")
+
+[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/Control/ColorRect/Cards/Button2"]
+z_index = -1
+position = Vector2(38, 57)
+scale = Vector2(0.0685208, 0.0678449)
+texture = ExtResource("7_wpb5i")
+
+[node name="Amount" type="Label" parent="TileMapLayer/Control/ColorRect/Cards/Button2"]
+visible = false
+layout_mode = 0
+offset_left = 62.0
+offset_top = 103.0
+offset_right = 103.0
+offset_bottom = 141.0
+text = "X2"
+label_settings = SubResource("LabelSettings_lixbk")
 
 [node name="Player" type="Node2D" parent="."]
 position = Vector2(48, 16)
@@ -498,5 +599,7 @@ position = Vector2(224, 256)
 shape = SubResource("RectangleShape2D_6a8qt")
 
 [connection signal="pressed" from="TileMapLayer/Control/ColorRect/End Turn" to="." method="_on_end_turn_pressed"]
+[connection signal="pressed" from="TileMapLayer/Control/ColorRect/Cards/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="TileMapLayer/Control/ColorRect/Cards/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

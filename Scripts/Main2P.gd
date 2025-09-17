@@ -14,9 +14,11 @@ extends Node2D
 
 @onready var ScanButton = $TileMapLayer/Control/ColorRect/Cards/Button
 @onready var FirewallButton = $TileMapLayer/Control/ColorRect/Cards/Button2
+@onready var OverclockButton = $TileMapLayer/Control/ColorRect/Cards/Button3
 
 @onready var ScanAmountIN = $TileMapLayer/Control/ColorRect/Cards/Button/Amount
 @onready var FirewallAmountIN = $TileMapLayer/Control/ColorRect/Cards/Button2/Amount
+@onready var OverclockAmountIN = $TileMapLayer/Control/ColorRect/Cards/Button3/Amount
 
 var GameoverScene = "res://Scenes/Game over.tscn"
 var WinScene = "res://Scenes/Winning screen.tscn"
@@ -35,6 +37,9 @@ var inArea: bool
 var buttonCD: bool
 var scanUsed: bool
 var firewallUsed: bool
+var OverclockUsed: bool
+
+var OverclockActive: bool
 
 var activePlr = 1
 var DisplayPlr = 1
@@ -43,7 +48,7 @@ var PlayerScores = [0, 0]
 func _ready():
 	Singleton.PlayerScores = [0, 0, 0, 0]
 	for i in range(Singleton.PlayerPowerUps.size()):
-		Singleton.PlayerPowerUps[i] = [0, 0]
+		Singleton.PlayerPowerUps[i] = [0, 0, 0]
 	
 	print(Singleton.PlayerPowerUps)
 	
@@ -83,10 +88,20 @@ func _input(event):
 			debounce = true
 			firewallUsed = false
 			scanUsed = false
+			OverclockUsed = false
+			
+			var amount
+			if OverclockActive:
+				amount = 4
+				OverclockActive = false
+			else:
+				amount = 2
+			
 			print("PLAYER 1")
 			id = Plr1Movement.setpathid(
 				tilemap.local_to_map($Player.global_position),
-				tilemap.local_to_map(get_global_mouse_position())
+				tilemap.local_to_map(get_global_mouse_position()),
+				amount
 				)
 		 
 			Plr1Movement.calpath(id)
@@ -104,9 +119,19 @@ func _input(event):
 			debounce = true
 			firewallUsed = false
 			scanUsed = false
+			OverclockUsed = false
+			
+			var amount
+			if OverclockActive:
+				amount = 4
+				OverclockActive = false
+			else:
+				amount = 2
+			
 			id = Plr2Movement.setpathid(
 				tilemap.local_to_map($Player2.global_position),
-				tilemap.local_to_map(get_global_mouse_position())
+				tilemap.local_to_map(get_global_mouse_position()),
+				amount
 				)
 		 	
 			Plr2Movement.calpath(id)
@@ -121,7 +146,8 @@ func _input(event):
 				
 				var VID = VControllers[i].setpathid(
 					tilemap.local_to_map(virusNodes[i].global_position),
-					tilemap.local_to_map(VControllers[i].CVTarget.global_position)
+					tilemap.local_to_map(VControllers[i].CVTarget.global_position),
+					1
 					)
 				
 				VControllers[i].calpath(VID)
@@ -211,6 +237,40 @@ func _physics_process(delta: float):
 		else:
 			FirewallButton.visible = false
 	
+	if not OverclockUsed:
+		if activePlr == 1:
+			
+			if Singleton.PlayerPowerUps[0][2] == 1:
+				OverclockButton.visible = true
+				OverclockAmountIN.visible = false
+			
+			elif Singleton.PlayerPowerUps[0][2] > 0:
+				OverclockButton.visible = true
+				OverclockAmountIN.visible = true
+				OverclockAmountIN.text = "X" + str(Singleton.PlayerPowerUps[0][2])
+				
+			else:
+				OverclockButton.visible = false
+				OverclockAmountIN.visible = false
+			
+		elif activePlr == 2:
+			
+			if Singleton.PlayerPowerUps[1][2] == 1:
+				OverclockButton.visible = true
+				OverclockAmountIN.visible = false
+			
+			elif Singleton.PlayerPowerUps[1][2] > 0:
+				OverclockButton.visible = true
+				OverclockAmountIN.visible = true
+				OverclockAmountIN.text = "X" + str(Singleton.PlayerPowerUps[1][2])
+				
+			else:
+				OverclockButton.visible = false
+				OverclockAmountIN.visible = false
+		
+		else:
+			OverclockButton.visible = false
+	
 	for i in range(ScoreLabels.size()):
 		ScoreLabels[i].text = "Player " + str(i + 1) + ":  " + str(Singleton.PlayerScores[i])
 	
@@ -249,7 +309,8 @@ func _on_end_turn_pressed() -> void:
 			
 			var VID = VControllers[i].setpathid(
 				tilemap.local_to_map(virusNodes[i].global_position),
-				tilemap.local_to_map(VControllers[i].CVTarget.global_position)
+				tilemap.local_to_map(VControllers[i].CVTarget.global_position),
+				1
 				)
 				
 			VControllers[i].calpath(VID)
@@ -304,3 +365,10 @@ func _on_button_2_pressed() -> void:
 	FirewallButton.visible = false
 	for nodes in VControllers:
 		nodes.firewallactivate()
+
+
+func _on_button_3_pressed() -> void:
+	OverclockActive = true
+	OverclockUsed = true
+	OverclockButton.visible = false
+	Singleton.PlayerPowerUps[activePlr - 1][2] -= 1
