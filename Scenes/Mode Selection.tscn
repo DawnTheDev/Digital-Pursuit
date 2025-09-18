@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://qlkdlstro87h"]
+[gd_scene load_steps=8 format=3 uid="uid://qlkdlstro87h"]
 
 [ext_resource type="Script" uid="uid://dm15qcc4t1n8c" path="res://Scripts/button.gd" id="1_kjpjg"]
 [ext_resource type="FontFile" uid="uid://5pm6sclng1ir" path="res://Fonts/Square.ttf" id="2_h7sbb"]
+[ext_resource type="Texture2D" uid="uid://bfnob6i6kdsln" path="res://Images/Banner duo.png" id="3_kjpjg"]
 [ext_resource type="Texture2D" uid="uid://cdvmri1emc8ac" path="res://Images/7b43821b-6983-4544-8441-e608b8e72747.ec8c48382a3f9d69d8bde8eebe1179d3.png" id="3_skxny"]
+[ext_resource type="Texture2D" uid="uid://oslchciqfagm" path="res://Images/Quad banner.png" id="3_t74nv"]
+[ext_resource type="Script" uid="uid://duathx34f67jq" path="res://Scenes/duobanner.gd" id="5_h6v6k"]
+[ext_resource type="Script" uid="uid://djbgbqpeh6ugs" path="res://Scenes/quadbanner.gd" id="7_tpc6e"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -28,9 +32,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -67.0
+offset_left = -58.0
 offset_top = -300.0
-offset_right = 52.0
+offset_right = 61.0
 offset_bottom = -247.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -39,30 +43,49 @@ theme_override_font_sizes/font_size = 50
 text = "Mode"
 
 [node name="7b43821b-6983-4544-8441-e608b8e72747_ec8c48382a3f9d69d8Bde8Eebe1179d3" type="Sprite2D" parent="."]
-position = Vector2(247, 330)
-scale = Vector2(0.452474, 0.692708)
+visible = false
+position = Vector2(268.625, 330)
+scale = Vector2(0.508789, 0.692708)
 texture = ExtResource("3_skxny")
 
-[node name="Duo" type="Button" parent="7b43821b-6983-4544-8441-e608b8e72747_ec8c48382a3f9d69d8Bde8Eebe1179d3"]
-visibility_layer = 0
-z_index = 1
-offset_left = -389.0
-offset_top = -385.0
-offset_right = 387.0
-offset_bottom = 390.0
-
 [node name="7b43821b-6983-4544-8441-e608b8e72747_ec8c48382a3f9d69d8Bde8Eebe1179d5" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(907, 331)
 scale = Vector2(0.452474, 0.692708)
 texture = ExtResource("3_skxny")
 
-[node name="Squad" type="Button" parent="7b43821b-6983-4544-8441-e608b8e72747_ec8c48382a3f9d69d8Bde8Eebe1179d5"]
+[node name="Duobanner" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 88.0
+offset_right = 852.0
+offset_bottom = 888.0
+scale = Vector2(0.6, 0.6)
+texture_normal = ExtResource("3_kjpjg")
+script = ExtResource("5_h6v6k")
+
+[node name="Duo" type="Button" parent="Duobanner"]
 visibility_layer = 0
 z_index = 1
-offset_left = -385.0
-offset_top = -383.0
-offset_right = 391.0
-offset_bottom = 385.0
+offset_left = 7.0
+offset_right = 801.0
+offset_bottom = 802.0
 
-[connection signal="pressed" from="7b43821b-6983-4544-8441-e608b8e72747_ec8c48382a3f9d69d8Bde8Eebe1179d3/Duo" to="." method="_on_button_3_pressed"]
-[connection signal="pressed" from="7b43821b-6983-4544-8441-e608b8e72747_ec8c48382a3f9d69d8Bde8Eebe1179d5/Squad" to="." method="_on_button_4_pressed"]
+[node name="Quadbanner" type="TextureButton" parent="."]
+offset_left = 643.0
+offset_top = 90.0
+offset_right = 1443.0
+offset_bottom = 890.0
+scale = Vector2(0.6, 0.6)
+texture_normal = ExtResource("3_t74nv")
+script = ExtResource("7_tpc6e")
+
+[node name="Squad" type="Button" parent="Quadbanner"]
+visibility_layer = 0
+z_index = 1
+offset_left = 7.0
+offset_right = 796.0
+offset_bottom = 800.0
+
+[connection signal="pressed" from="Duobanner/Duo" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="Quadbanner/Squad" to="." method="_on_button_4_pressed"]
