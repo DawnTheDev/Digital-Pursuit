@@ -25,9 +25,11 @@ extends Node2D
 
 @onready var ScanButton = $TileMapLayer/Control/ColorRect/Cards/Button
 @onready var FirewallButton = $TileMapLayer/Control/ColorRect/Cards/Button2
+@onready var OverclockButton = $TileMapLayer/Control/ColorRect/Cards/Button3
 
 @onready var ScanAmountIN = $TileMapLayer/Control/ColorRect/Cards/Button/Amount
 @onready var FirewallAmountIN = $TileMapLayer/Control/ColorRect/Cards/Button2/Amount
+@onready var OverclockAmountIN = $TileMapLayer/Control/ColorRect/Cards/Button3/Amount
 
 var GameoverScene = "res://Scenes/Game over.tscn"
 var WinScene = "res://Scenes/Winning screen.tscn"
@@ -45,12 +47,17 @@ var buttonCD: bool
 
 var scanUsed: bool
 var firewallUsed: bool
+var OverclockUsed: bool
+
+var OverclockActive: bool
 
 var activePlr = 0
 var DisplayPlr = 1
 
 func _ready():
 	Singleton.PlayerScores = [0, 0, 0, 0]
+	for i in range(Singleton.PlayerPowerUps.size()):
+		Singleton.PlayerPowerUps[i] = [0, 0, 1]
 	
 	for nodes in range(pNodes.size()):
 		print("Registering " + str(nodes))
@@ -91,10 +98,19 @@ func _input(event):
 		debounce = true
 		scanUsed = false
 		firewallUsed = false
+		OverclockUsed = false
+		
+		var amount
+		if OverclockActive:
+			amount = 4
+			OverclockActive = false
+		else:
+			amount = 2
 		
 		id = PControllers[activePlr].setpathid(
 			tilemap.local_to_map(pNodes[activePlr].global_position),
-			tilemap.local_to_map(get_global_mouse_position())
+			tilemap.local_to_map(get_global_mouse_position()),
+			amount
 		)
 		
 		PControllers[activePlr].calpath(id)
@@ -111,7 +127,8 @@ func _input(event):
 				
 				var VID = VControllers[i].setpathid(
 					tilemap.local_to_map(virusNodes[i].global_position),
-					tilemap.local_to_map(VControllers[i].CVTarget.global_position)
+					tilemap.local_to_map(VControllers[i].CVTarget.global_position),
+					1
 					)
 				
 				VControllers[i].calpath(VID)
@@ -125,6 +142,7 @@ func _input(event):
 		else:
 			scanUsed = false
 			firewallUsed = false
+			OverclockUsed = false
 			
 			PControllers[activePlr].setturn(false)
 		
@@ -153,7 +171,7 @@ func _physics_process(delta: float):
 				elif Singleton.PlayerPowerUps[i][0] > 0:
 					ScanButton.visible = true
 					ScanAmountIN.visible = true
-					ScanAmountIN.text = "X" + str(Singleton.PlayerPowerUps[0][0])
+					ScanAmountIN.text = "X" + str(Singleton.PlayerPowerUps[i][0])
 				
 				else:
 					ScanButton.visible = false
@@ -168,11 +186,29 @@ func _physics_process(delta: float):
 				elif Singleton.PlayerPowerUps[i][1] > 0:
 					FirewallButton.visible = true
 					FirewallAmountIN.visible = true
-					FirewallAmountIN.text = "X" + str(Singleton.PlayerPowerUps[1][1])
+					FirewallAmountIN.text = "X" + str(Singleton.PlayerPowerUps[i][1])
 				
 				else:
 					FirewallButton.visible = false
 					FirewallAmountIN.visible = false
+			
+			if not OverclockUsed:
+				
+				if Singleton.PlayerPowerUps[i][2] == 1:
+					#print(OverclockButton.visible)
+					OverclockButton.visible = true
+					OverclockAmountIN.visible = false
+			
+				elif Singleton.PlayerPowerUps[i][2] > 0:
+					OverclockButton.visible = true
+					OverclockAmountIN.visible = true
+					OverclockAmountIN.text = "X" + str(Singleton.PlayerPowerUps[i][2])
+				
+				else:
+					print(2)
+					OverclockButton.visible = false
+					OverclockAmountIN.visible = false
+	
 	
 	for i in range(ScoreLabels.size()):
 		ScoreLabels[i].text = "Player " + str(i + 1) + ":  " + str(Singleton.PlayerScores[i])
@@ -213,7 +249,8 @@ func _on_end_turn_pressed() -> void:
 			
 			var VID = VControllers[i].setpathid(
 				tilemap.local_to_map(virusNodes[i].global_position),
-				tilemap.local_to_map(VControllers[i].CVTarget.global_position)
+				tilemap.local_to_map(VControllers[i].CVTarget.global_position),
+				1
 				)
 				
 			VControllers[i].calpath(VID)
@@ -273,3 +310,10 @@ func _on_button_2_pressed() -> void:
 	FirewallButton.visible = false
 	for nodes in VControllers:
 		nodes.firewallactivate()
+
+func _on_button_3_pressed() -> void:
+	OverclockActive = true
+	OverclockUsed = true
+	Singleton.PlayerPowerUps[activePlr][2] -= 1
+	OverclockButton.visible = false
+		

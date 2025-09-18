@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://byctv1o3ajb6f"]
+[gd_scene load_steps=36 format=4 uid="uid://byctv1o3ajb6f"]
 
 [ext_resource type="Texture2D" uid="uid://d2pchiuna4e8" path="res://MAP/images.jpg" id="1_6a8qt"]
 [ext_resource type="Script" uid="uid://njrkucjpnu1k" path="res://Scripts/Main4P.gd" id="1_i2ov8"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b6fh7j7l5w40u" path="res://Images/FIREWALL CARD.png" id="7_wpb5i"]
 [ext_resource type="Texture2D" uid="uid://djwhdmbmqr2ag" path="res://Images/the-server-4.webp" id="8_aw77x"]
 [ext_resource type="Texture2D" uid="uid://bbkhbq4fqhisx" path="res://Images/Virus Digital.png" id="8_i2ov8"]
+[ext_resource type="Texture2D" uid="uid://ginhqg2ajs7w" path="res://Images/overclock.png" id="8_j7obd"]
 [ext_resource type="Texture2D" uid="uid://dh5hgtyowfudw" path="res://Images/Player Red.png" id="8_wpb5i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rceh8"]
@@ -289,6 +290,22 @@ font_size = 20
 font = ExtResource("3_kah33")
 font_size = 30
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aw77x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lixbk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aw4gr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dlw64"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5gxmh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fy0wj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kaoh0"]
+font = ExtResource("3_kah33")
+font_size = 30
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6a8qt"]
 size = Vector2(640, 640)
 
@@ -422,10 +439,10 @@ label_settings = SubResource("LabelSettings_aw77x")
 visible = false
 z_index = 1
 layout_mode = 0
-offset_left = 133.0
-offset_top = 44.0
-offset_right = 217.0
-offset_bottom = 161.0
+offset_left = 71.0
+offset_top = 47.0
+offset_right = 155.0
+offset_bottom = 164.0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_c317b")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_x7jwk")
 theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_075bn")
@@ -453,10 +470,10 @@ label_settings = SubResource("LabelSettings_lixbk")
 visible = false
 z_index = 1
 layout_mode = 0
-offset_left = 238.0
-offset_top = 46.0
-offset_right = 320.0
-offset_bottom = 160.0
+offset_left = 176.0
+offset_top = 49.0
+offset_right = 258.0
+offset_bottom = 163.0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_c317b")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_x7jwk")
 theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_075bn")
@@ -479,6 +496,35 @@ offset_right = 103.0
 offset_bottom = 141.0
 text = "X2"
 label_settings = SubResource("LabelSettings_lixbk")
+
+[node name="Button3" type="Button" parent="TileMapLayer/Control/ColorRect/Cards"]
+visible = false
+layout_mode = 0
+offset_left = 286.0
+offset_top = 49.0
+offset_right = 367.0
+offset_bottom = 163.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_aw77x")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_lixbk")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_aw4gr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_dlw64")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5gxmh")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fy0wj")
+
+[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/Control/ColorRect/Cards/Button3"]
+position = Vector2(40, 57)
+scale = Vector2(0.224377, 0.218391)
+texture = ExtResource("8_j7obd")
+
+[node name="Amount" type="Label" parent="TileMapLayer/Control/ColorRect/Cards/Button3"]
+visible = false
+layout_mode = 0
+offset_left = 62.0
+offset_top = 103.0
+offset_right = 103.0
+offset_bottom = 141.0
+text = "X2"
+label_settings = SubResource("LabelSettings_kaoh0")
 
 [node name="Player" type="Node2D" parent="."]
 position = Vector2(48, 16)
@@ -601,5 +647,6 @@ shape = SubResource("RectangleShape2D_6a8qt")
 [connection signal="pressed" from="TileMapLayer/Control/ColorRect/End Turn" to="." method="_on_end_turn_pressed"]
 [connection signal="pressed" from="TileMapLayer/Control/ColorRect/Cards/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="TileMapLayer/Control/ColorRect/Cards/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="TileMapLayer/Control/ColorRect/Cards/Button3" to="." method="_on_button_3_pressed"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
