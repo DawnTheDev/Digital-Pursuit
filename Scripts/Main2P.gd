@@ -20,6 +20,11 @@ extends Node2D
 @onready var FirewallAmountIN = $TileMapLayer/Control/ColorRect/Cards/Button2/Amount
 @onready var OverclockAmountIN = $TileMapLayer/Control/ColorRect/Cards/Button3/Amount
 
+#Banneranimation by plouis
+@onready var Firewallbanner = $TileMapLayer/Control/Banneranimation/Firewallbanner/Firewallbannerani
+@onready var Scanwallbanner = $TileMapLayer/Control/Banneranimation/Scanwallbanner/Scanwallbannerani
+@onready var Player1banner = $TileMapLayer/Control/Banneranimation/Player1banner/AnimationPlayer
+@onready var Player2banner = $TileMapLayer/Control/Banneranimation/Player2banner/AnimationPlayer2
 var GameoverScene = "res://Scenes/Game over.tscn"
 var WinScene = "res://Scenes/Winning screen.tscn"
 
@@ -85,6 +90,7 @@ func _input(event):
 			return
 		
 		if activePlr == 1:
+			Player2banner.play("Moving in")
 			debounce = true
 			firewallUsed = false
 			scanUsed = false
@@ -160,7 +166,7 @@ func _input(event):
 			Plr1Movement.setturn(true)
 			activePlr = 1
 			DisplayPlr = 1
-			
+			Player1banner.play("Moving in")
 			debounce = false
 		
 		
@@ -297,7 +303,7 @@ func _on_end_turn_pressed() -> void:
 		Plr2Movement.setturn(true)
 		activePlr = 2
 		DisplayPlr = 2
-		
+		Player2banner.play("Moving in")
 	elif activePlr == 2:
 		
 		await get_tree().create_timer(.75).timeout
@@ -320,7 +326,7 @@ func _on_end_turn_pressed() -> void:
 		Plr2Movement.setturn(false)
 		activePlr = 1
 		DisplayPlr = 1
-		
+		Player1banner.play("Moving in")
 		scanUsed = false
 		firewallUsed = false
 	
@@ -353,6 +359,7 @@ func _on_area_2d_mouse_exited() -> void:
 
 func _on_button_pressed() -> void:
 	scanUsed = true
+	Scanwallbanner.play("Moving in")
 	Singleton.PlayerPowerUps[activePlr - 1][0] -= 1
 	ScanButton.visible = false
 	for nodes in VControllers:
@@ -362,6 +369,7 @@ func _on_button_pressed() -> void:
 func _on_button_2_pressed() -> void:
 	firewallUsed = true
 	Singleton.PlayerPowerUps[activePlr - 1][1] -= 1
+	Firewallbanner.play("Moving in")
 	FirewallButton.visible = false
 	for nodes in VControllers:
 		nodes.firewallactivate()
