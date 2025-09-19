@@ -28,6 +28,10 @@ extends Node2D
 var GameoverScene = "res://Scenes/Game over.tscn"
 var WinScene = "res://Scenes/Winning screen.tscn"
 
+@onready var sfx_scan = $scanuse
+@onready var sfx_firewall = $firewalluse
+@onready var sfx_overclock = $overclockuse
+
 var Plr1Movement = PlayerMovement
 var Plr2Movement = PlayerMovement
 
@@ -289,9 +293,11 @@ func _physics_process(delta: float):
 	
 	if not VControllers[0].Alive and not VControllers[1].Alive and not VControllers[2].Alive:
 		EndGame(WinScene)
+		MenuSoundBg.stop()
 	
 	if not dataNodes[0].visible and not dataNodes[1].visible:
 		EndGame(GameoverScene)
+		MenuSoundBg.stop()
 
 func _on_end_turn_pressed() -> void:
 	if buttonCD: return
@@ -364,6 +370,7 @@ func _on_button_pressed() -> void:
 	ScanButton.visible = false
 	for nodes in VControllers:
 		nodes.scanactivate()
+	sfx_scan.play()
 
 
 func _on_button_2_pressed() -> void:
@@ -373,6 +380,7 @@ func _on_button_2_pressed() -> void:
 	FirewallButton.visible = false
 	for nodes in VControllers:
 		nodes.firewallactivate()
+	sfx_firewall.play()
 
 
 func _on_button_3_pressed() -> void:
@@ -380,3 +388,4 @@ func _on_button_3_pressed() -> void:
 	OverclockUsed = true
 	OverclockButton.visible = false
 	Singleton.PlayerPowerUps[activePlr - 1][2] -= 1
+	sfx_overclock.play()

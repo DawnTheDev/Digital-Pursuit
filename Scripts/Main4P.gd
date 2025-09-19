@@ -27,6 +27,10 @@ extends Node2D
 @onready var FirewallButton = $TileMapLayer/Control/ColorRect/Cards/Button2
 @onready var OverclockButton = $TileMapLayer/Control/ColorRect/Cards/Button3
 
+@onready var sfx_scan = $scanuse
+@onready var sfx_firewall = $firewalluse
+@onready var sfx_overclock = $overclockuse
+
 @onready var ScanAmountIN = $TileMapLayer/Control/ColorRect/Cards/Button/Amount
 @onready var FirewallAmountIN = $TileMapLayer/Control/ColorRect/Cards/Button2/Amount
 @onready var OverclockAmountIN = $TileMapLayer/Control/ColorRect/Cards/Button3/Amount
@@ -231,9 +235,11 @@ func _physics_process(delta: float):
 	
 	if count == VControllers.size():
 		EndGame(WinScene)
+		MenuSoundBg.stop()
 	
 	if not dataNodes[0].visible and not dataNodes[1].visible:
 		EndGame(GameoverScene)
+		MenuSoundBg.stop()
 
 func _on_end_turn_pressed() -> void:
 	if buttonCD: return
@@ -301,6 +307,7 @@ func _on_button_pressed() -> void:
 	ScanButton.visible = false
 	for nodes in VControllers:
 		nodes.scanactivate()
+	sfx_scan.play()
 	
 
 
@@ -310,10 +317,12 @@ func _on_button_2_pressed() -> void:
 	FirewallButton.visible = false
 	for nodes in VControllers:
 		nodes.firewallactivate()
+	sfx_firewall.play()
 
 func _on_button_3_pressed() -> void:
 	OverclockActive = true
 	OverclockUsed = true
 	Singleton.PlayerPowerUps[activePlr][2] -= 1
 	OverclockButton.visible = false
+	sfx_overclock.play()
 		

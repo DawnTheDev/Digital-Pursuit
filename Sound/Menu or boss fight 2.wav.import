@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://chbyc63sn70bl"
+path="res://.godot/imported/Menu or boss fight 2.wav-0c0f9adbba01f1f0306e9f82854658c6.sample"
+
+[deps]
+
+source_file="res://Sound/Menu or boss fight 2.wav"
+dest_files=["res://.godot/imported/Menu or boss fight 2.wav-0c0f9adbba01f1f0306e9f82854658c6.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

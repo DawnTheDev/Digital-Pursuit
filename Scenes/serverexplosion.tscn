@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dn6okbwm845v5"]
+
+[ext_resource type="AudioStream" uid="uid://bua7m0bphfu5w" path="res://Sound/Server explosion.wav" id="1_vy3na"]
+
+[node name="serverexplosion" type="AudioStreamPlayer"]
+stream = ExtResource("1_vy3na")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://byctv1o3ajb6f"]
+[gd_scene load_steps=39 format=4 uid="uid://byctv1o3ajb6f"]
 
 [ext_resource type="Texture2D" uid="uid://d2pchiuna4e8" path="res://MAP/images.jpg" id="1_6a8qt"]
 [ext_resource type="Script" uid="uid://njrkucjpnu1k" path="res://Scripts/Main4P.gd" id="1_i2ov8"]
@@ -13,6 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://bbkhbq4fqhisx" path="res://Images/Virus Digital.png" id="8_i2ov8"]
 [ext_resource type="Texture2D" uid="uid://ginhqg2ajs7w" path="res://Images/overclock.png" id="8_j7obd"]
 [ext_resource type="Texture2D" uid="uid://dh5hgtyowfudw" path="res://Images/Player Red.png" id="8_wpb5i"]
+[ext_resource type="AudioStream" uid="uid://dr0e4ww1uoc0h" path="res://Sound/powerUp scan.wav" id="14_c317b"]
+[ext_resource type="AudioStream" uid="uid://dni47np6rdnmn" path="res://Sound/powerUp firewall.wav" id="15_x7jwk"]
+[ext_resource type="AudioStream" uid="uid://by8jdo45oewu2" path="res://Sound/powerUp overclock.wav" id="16_075bn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rceh8"]
 texture = ExtResource("1_6a8qt")
@@ -643,6 +646,15 @@ position = Vector2(96, 64)
 z_index = 3
 position = Vector2(224, 256)
 shape = SubResource("RectangleShape2D_6a8qt")
+
+[node name="scanuse" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_c317b")
+
+[node name="firewalluse" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_x7jwk")
+
+[node name="overclockuse" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_075bn")
 
 [connection signal="pressed" from="TileMapLayer/Control/ColorRect/End Turn" to="." method="_on_end_turn_pressed"]
 [connection signal="pressed" from="TileMapLayer/Control/ColorRect/Cards/Button" to="." method="_on_button_pressed"]

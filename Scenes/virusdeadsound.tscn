@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0llkvfj0r82"]
+
+[ext_resource type="AudioStream" uid="uid://cppabmj3mjnl" path="res://Sound/laserShoot.wav" id="1_5og7k"]
+
+[node name="virusdeadsound" type="AudioStreamPlayer"]
+stream = ExtResource("1_5og7k")

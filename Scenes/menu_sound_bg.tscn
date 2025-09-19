@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://03bngknuni01"]
+
+[ext_resource type="AudioStream" uid="uid://chbyc63sn70bl" path="res://Sound/Menu or boss fight 2.wav" id="1_8rx26"]
+
+[node name="Menu sound bg" type="AudioStreamPlayer"]
+stream = ExtResource("1_8rx26")

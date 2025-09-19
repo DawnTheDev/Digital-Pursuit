@@ -2,6 +2,10 @@ extends Control
 
 @onready var nextscene = "res://Scenes/Mode Selection.tscn"
 
+func _ready() -> void:
+	MenuSoundBg.play()
+
+
 func _on_start_pressed() -> void:
 	get_tree().change_scene_to_file(nextscene)
 

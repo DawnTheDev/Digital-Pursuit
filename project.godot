@@ -18,6 +18,9 @@ config/icon="res://Images/icon.svg"
 [autoload]
 
 Singleton="*res://Scripts/Singleton.gd"
+MenuSoundBg="*res://Scenes/menu_sound_bg.tscn"
+Serverexplosion="*res://Scenes/serverexplosion.tscn"
+Virusdeadsound="*res://Scenes/virusdeadsound.tscn"
 
 [input]
 

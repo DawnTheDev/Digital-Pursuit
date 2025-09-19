@@ -102,6 +102,7 @@ func _physics_process(delta):
 				Singleton.PlayerPowerUps[i][rng] += 1
 				
 				Singleton.PlayerScores[i] += 1
+				Virusdeadsound.play()
 				VSprite.texture = load("res://Images/Virus-Digital-Dead2.png")
 				Alive = false
 				await get_tree().create_timer(1.5).timeout
@@ -110,6 +111,7 @@ func _physics_process(delta):
 				pass
 		
 		if target.global_position == CVTarget.global_position:
+			Serverexplosion.play()
 			CVTarget.visible = false
 			getnewtg()
 			print("GOT IT")
