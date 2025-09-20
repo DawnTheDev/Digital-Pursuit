@@ -1,9 +1,246 @@
-[gd_scene load_steps=5 format=3 uid="uid://cfjwuv8a8m5bt"]
+[gd_scene load_steps=19 format=3 uid="uid://cfjwuv8a8m5bt"]
 
 [ext_resource type="Script" uid="uid://c3i2kvajil1pm" path="res://Scripts/main_menu.gd" id="1_hcxxy"]
 [ext_resource type="FontFile" uid="uid://5pm6sclng1ir" path="res://Fonts/Square.ttf" id="1_totuj"]
+[ext_resource type="Script" uid="uid://cmwhoqlpytusl" path="res://Scenes/color_rect.gd" id="2_0vewo"]
 [ext_resource type="Script" uid="uid://in5jk8lp71ou" path="res://Scenes/starttransition.gd" id="3_eotax"]
 [ext_resource type="Script" uid="uid://cu2r3oaqhw5h7" path="res://Scenes/exittransition.gd" id="4_udm2q"]
+[ext_resource type="Script" uid="uid://bye16xaldl8nc" path="res://Scenes/animation_player.gd" id="5_mjet1"]
+[ext_resource type="Texture2D" uid="uid://dn45funkqb7dg" path="res://Images/character blue.png" id="5_udm2q"]
+[ext_resource type="Script" uid="uid://cwawni2cyrf45" path="res://Scenes/Characterintro.gd" id="6_4lp62"]
+[ext_resource type="Texture2D" uid="uid://bbkhbq4fqhisx" path="res://Images/Virus Digital.png" id="8_0vewo"]
+
+[sub_resource type="Animation" id="Animation_0126h"]
+resource_name = "Moving in"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2, 2.43333, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-1128, 79), Vector2(-747, 79), Vector2(85, 79)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.5, 3.7),
+"transitions": PackedFloat32Array(1.03526, 1),
+"update": 0,
+"values": [Color(0.671, 0.671, 0.671, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4lp62"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1128, 79)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0vewo"]
+_data = {
+&"Moving in": SubResource("Animation_0126h"),
+&"RESET": SubResource("Animation_4lp62")
+}
+
+[sub_resource type="Animation" id="Animation_wib81"]
+resource_name = "Entracescene"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.96667, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 1.96667, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(442, 469.344), Vector2(580, 469.344), Vector2(580, 469.344), Vector2(171, 469.344)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 1.96667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.506379, 0.534172), Vector2(0.506379, 0.534172), Vector2(0.124905, 0.134066)]
+}
+
+[sub_resource type="Animation" id="Animation_tbdrc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(341, 469.344)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.506379, 0.534172)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vuees"]
+_data = {
+&"Entracescene": SubResource("Animation_wib81"),
+&"RESET": SubResource("Animation_tbdrc")
+}
+
+[sub_resource type="Animation" id="Animation_ns28u"]
+length = 10.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(502.96, 530.572)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.269622, 0.277312)]
+}
+
+[sub_resource type="Animation" id="Animation_3hb06"]
+resource_name = "Virusentrance"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4.03333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 2, 3, 4.03333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(502.96, 530.572), Vector2(331, 530.572), Vector2(331, 530.572), Vector2(560, 530.572)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1, 2.03333, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.269622, 0.277312), Vector2(0.269622, 0.277312), Vector2(0.071555, 0.0690196)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ef6yq"]
+_data = {
+&"RESET": SubResource("Animation_ns28u"),
+&"Virusentrance": SubResource("Animation_3hb06")
+}
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -17,8 +254,17 @@ script = ExtResource("1_hcxxy")
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
 offset_right = 1152.0
-offset_bottom = 639.0
+offset_bottom = 648.0
 scale = Vector2(1.00108, 1)
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect"]
+layout_mode = 0
+offset_left = 694.0
+offset_right = 1152.0
+offset_bottom = 648.0
+scale = Vector2(1.00108, 1)
+color = Color(0.439049, 0.439049, 0.439049, 1)
+script = ExtResource("2_0vewo")
 
 [node name="Start" type="Button" parent="."]
 layout_mode = 1
@@ -63,9 +309,9 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -533.0
+offset_left = -1704.0
 offset_top = 79.0
-offset_right = 535.0
+offset_right = -600.0
 offset_bottom = 232.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(1, 0.257746, 0.995748, 1)
@@ -73,6 +319,35 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_totuj")
 theme_override_font_sizes/font_size = 146
 text = "Digital Pursuit"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Digital Pursuit"]
+libraries = {
+&"": SubResource("AnimationLibrary_0vewo")
+}
+script = ExtResource("5_mjet1")
+
+[node name="Node2D" type="Node2D" parent="."]
+script = ExtResource("6_4lp62")
+
+[node name="Antivirus Entrance" type="Sprite2D" parent="Node2D"]
+position = Vector2(341, 469.344)
+scale = Vector2(0.506379, 0.534172)
+texture = ExtResource("5_udm2q")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D/Antivirus Entrance"]
+libraries = {
+&"": SubResource("AnimationLibrary_vuees")
+}
+
+[node name="Virus Entrance" type="Sprite2D" parent="Node2D"]
+position = Vector2(502.96, 530.572)
+scale = Vector2(0.269622, 0.277312)
+texture = ExtResource("8_0vewo")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D/Virus Entrance"]
+libraries = {
+&"": SubResource("AnimationLibrary_ef6yq")
+}
 
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

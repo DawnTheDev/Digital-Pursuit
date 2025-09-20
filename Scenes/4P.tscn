@@ -1,18 +1,25 @@
-[gd_scene load_steps=39 format=4 uid="uid://byctv1o3ajb6f"]
+[gd_scene load_steps=56 format=4 uid="uid://byctv1o3ajb6f"]
 
 [ext_resource type="Texture2D" uid="uid://d2pchiuna4e8" path="res://MAP/images.jpg" id="1_6a8qt"]
 [ext_resource type="Script" uid="uid://njrkucjpnu1k" path="res://Scripts/Main4P.gd" id="1_i2ov8"]
 [ext_resource type="Texture2D" uid="uid://ca2m07ittg1q5" path="res://MAP/images.png" id="2_i2ov8"]
 [ext_resource type="FontFile" uid="uid://5pm6sclng1ir" path="res://Fonts/Square.ttf" id="3_kah33"]
+[ext_resource type="Texture2D" uid="uid://d0fssk4hwa7hr" path="res://Images/Player2banner.png" id="5_8qx6t"]
 [ext_resource type="Texture2D" uid="uid://dn45funkqb7dg" path="res://Images/character blue.png" id="5_kah33"]
 [ext_resource type="Texture2D" uid="uid://csaicngq3nbll" path="res://Images/character Green.png" id="6_8to4y"]
 [ext_resource type="Texture2D" uid="uid://sd3qjbjlpnsg" path="res://Images/Scan card.png" id="6_56haj"]
+[ext_resource type="Texture2D" uid="uid://dqw0bou5k7wet" path="res://Images/Player1banner.png" id="6_l2jvp"]
 [ext_resource type="Texture2D" uid="uid://b70ajsbljr4vj" path="res://Images/character yellow.png" id="7_56haj"]
+[ext_resource type="Texture2D" uid="uid://dv6gemlfuctx2" path="res://Images/Player3banner.png" id="7_aw4gr"]
+[ext_resource type="Texture2D" uid="uid://dcal5l8dkjpri" path="res://Images/Scanwallusedbanner.png" id="7_lixbk"]
 [ext_resource type="Texture2D" uid="uid://b6fh7j7l5w40u" path="res://Images/FIREWALL CARD.png" id="7_wpb5i"]
+[ext_resource type="Texture2D" uid="uid://b4nqg8idsc6a7" path="res://Images/Virusbanner.png" id="8_aw4gr"]
 [ext_resource type="Texture2D" uid="uid://djwhdmbmqr2ag" path="res://Images/the-server-4.webp" id="8_aw77x"]
+[ext_resource type="Texture2D" uid="uid://u7qt0r8gpf6x" path="res://Images/Player4banner.png" id="8_dlw64"]
 [ext_resource type="Texture2D" uid="uid://bbkhbq4fqhisx" path="res://Images/Virus Digital.png" id="8_i2ov8"]
 [ext_resource type="Texture2D" uid="uid://ginhqg2ajs7w" path="res://Images/overclock.png" id="8_j7obd"]
 [ext_resource type="Texture2D" uid="uid://dh5hgtyowfudw" path="res://Images/Player Red.png" id="8_wpb5i"]
+[ext_resource type="Texture2D" uid="uid://g0pq2gy4yj7y" path="res://Images/Firewallusedbanner.png" id="9_5gxmh"]
 [ext_resource type="AudioStream" uid="uid://dr0e4ww1uoc0h" path="res://Sound/powerUp scan.wav" id="14_c317b"]
 [ext_resource type="AudioStream" uid="uid://dni47np6rdnmn" path="res://Sound/powerUp firewall.wav" id="15_x7jwk"]
 [ext_resource type="AudioStream" uid="uid://by8jdo45oewu2" path="res://Sound/powerUp overclock.wav" id="16_075bn"]
@@ -270,6 +277,122 @@ font_size = 30
 font = ExtResource("3_kah33")
 font_size = 30
 
+[sub_resource type="Animation" id="Animation_fy0wj"]
+resource_name = "Moving in"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.53333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-705.6, -96.95), Vector2(-386, -96.95), Vector2(-386, -96.95), Vector2(-706, -96.95)]
+}
+
+[sub_resource type="Animation" id="Animation_kaoh0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-705.6, -96.95)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i0vsh"]
+_data = {
+&"Moving in": SubResource("Animation_fy0wj"),
+&"RESET": SubResource("Animation_kaoh0")
+}
+
+[sub_resource type="Animation" id="Animation_jseox"]
+resource_name = "Moving in"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-955, 194), Vector2(111, 194), Vector2(111, 194), Vector2(1058, 194)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l3cdo"]
+_data = {
+&"Moving in": SubResource("Animation_jseox")
+}
+
+[sub_resource type="Animation" id="Animation_bcfd1"]
+resource_name = "Moving in"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-955, 194), Vector2(111, 194), Vector2(111, 194), Vector2(1058, 194)]
+}
+
+[sub_resource type="Animation" id="Animation_my1yn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-955, 194)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_swjys"]
+_data = {
+&"Moving in": SubResource("Animation_bcfd1"),
+&"RESET": SubResource("Animation_my1yn")
+}
+
+[sub_resource type="Animation" id="Animation_aw4gr"]
+resource_name = "Moving in"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.53333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-705.6, -96.95), Vector2(-386, -96.95), Vector2(-386, -96.95), Vector2(-706, -96.95)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dlw64"]
+_data = {
+&"Moving in": SubResource("Animation_aw4gr")
+}
+
 [sub_resource type="LabelSettings" id="LabelSettings_j7obd"]
 font_size = 35
 
@@ -401,6 +524,86 @@ offset_right = 251.0
 offset_bottom = 153.0
 text = "PLAYER 4: 0"
 label_settings = SubResource("LabelSettings_i2ov8")
+
+[node name="Banneranimation" type="Control" parent="TileMapLayer/Control/ColorRect/Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -132.0
+offset_top = 16.0
+offset_right = -92.0
+offset_bottom = 56.0
+
+[node name="Player1banner" type="Sprite2D" parent="TileMapLayer/Control/ColorRect/Control/Banneranimation"]
+z_index = 2
+position = Vector2(-705.6, -96.95)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_l2jvp")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TileMapLayer/Control/ColorRect/Control/Banneranimation/Player1banner"]
+libraries = {
+&"": SubResource("AnimationLibrary_i0vsh")
+}
+
+[node name="Player2banner" type="Sprite2D" parent="TileMapLayer/Control/ColorRect/Control/Banneranimation"]
+position = Vector2(-705.6, -96.95)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("5_8qx6t")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TileMapLayer/Control/ColorRect/Control/Banneranimation/Player2banner"]
+libraries = {
+&"": SubResource("AnimationLibrary_i0vsh")
+}
+
+[node name="Player3banner" type="Sprite2D" parent="TileMapLayer/Control/ColorRect/Control/Banneranimation"]
+position = Vector2(-705.6, -96.95)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("7_aw4gr")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TileMapLayer/Control/ColorRect/Control/Banneranimation/Player3banner"]
+libraries = {
+&"": SubResource("AnimationLibrary_i0vsh")
+}
+
+[node name="Player4banner" type="Sprite2D" parent="TileMapLayer/Control/ColorRect/Control/Banneranimation"]
+position = Vector2(-705.6, -96.95)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("8_dlw64")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TileMapLayer/Control/ColorRect/Control/Banneranimation/Player4banner"]
+libraries = {
+&"": SubResource("AnimationLibrary_i0vsh")
+}
+
+[node name="Firewallbanner" type="Sprite2D" parent="TileMapLayer/Control/ColorRect/Control/Banneranimation"]
+position = Vector2(-955, 194)
+scale = Vector2(0.23, 0.255945)
+texture = ExtResource("9_5gxmh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TileMapLayer/Control/ColorRect/Control/Banneranimation/Firewallbanner"]
+libraries = {
+&"": SubResource("AnimationLibrary_l3cdo")
+}
+
+[node name="Scanwallbanner" type="Sprite2D" parent="TileMapLayer/Control/ColorRect/Control/Banneranimation"]
+z_index = 4
+position = Vector2(-955, 194)
+scale = Vector2(0.23, 0.255945)
+texture = ExtResource("7_lixbk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TileMapLayer/Control/ColorRect/Control/Banneranimation/Scanwallbanner"]
+libraries = {
+&"": SubResource("AnimationLibrary_swjys")
+}
+
+[node name="Virusbanner" type="Sprite2D" parent="TileMapLayer/Control/ColorRect/Control/Banneranimation"]
+position = Vector2(-705.6, -96.95)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("8_aw4gr")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TileMapLayer/Control/ColorRect/Control/Banneranimation/Virusbanner"]
+libraries = {
+&"": SubResource("AnimationLibrary_dlw64")
+}
 
 [node name="Label" type="Label" parent="TileMapLayer/Control/ColorRect"]
 layout_mode = 0

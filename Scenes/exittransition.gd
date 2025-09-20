@@ -2,6 +2,9 @@ extends Control
 
 func _ready():
 	# Start offscreen
+	visible = false
+	await get_tree().create_timer(4).timeout
+	visible = true
 	self.position.x = 3000
 
 
