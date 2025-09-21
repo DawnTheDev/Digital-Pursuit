@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Digital-pursuit-Patch4player"
+config/name="Digital-pursuit-sound"
 run/main_scene="uid://cfjwuv8a8m5bt"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://Images/icon.svg"
