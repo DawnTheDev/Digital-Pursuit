@@ -25,6 +25,7 @@ extends Node2D
 @onready var Scanwallbanner = $TileMapLayer/Control/Banneranimation/Scanwallbanner/Scanwallbannerani
 @onready var Player1banner = $TileMapLayer/Control/Banneranimation/Player1banner/AnimationPlayer
 @onready var Player2banner = $TileMapLayer/Control/Banneranimation/Player2banner/AnimationPlayer2
+@onready var Virusbanner = $TileMapLayer/Control/Banneranimation/Sprite2D/Virusbanneranimation
 var GameoverScene = "res://Scenes/Game over.tscn"
 var WinScene = "res://Scenes/Winning screen.tscn"
 
@@ -150,6 +151,7 @@ func _input(event):
 			await get_tree().create_timer(.75).timeout
 			activePlr = 3
 			DisplayPlr = "Viruses"
+			Virusbanner.play("Moving in")
 			
 			for i in range(3):
 				VControllers[i].setturn(true)

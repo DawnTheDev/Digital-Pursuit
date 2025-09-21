@@ -23,7 +23,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(2, 2.43333, 4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(-1128, 79), Vector2(-747, 79), Vector2(85, 79)]
+"values": [Vector2(-1128, 79), Vector2(-747, 79), Vector2(40, 79)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -309,9 +309,9 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -1704.0
+offset_left = -536.0
 offset_top = 79.0
-offset_right = -600.0
+offset_right = 568.0
 offset_bottom = 232.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(1, 0.257746, 0.995748, 1)

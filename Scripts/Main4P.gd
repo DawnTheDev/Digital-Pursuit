@@ -35,6 +35,14 @@ extends Node2D
 @onready var FirewallAmountIN = $TileMapLayer/Control/ColorRect/Cards/Button2/Amount
 @onready var OverclockAmountIN = $TileMapLayer/Control/ColorRect/Cards/Button3/Amount
 
+@onready var Firewallbanner = $TileMapLayer/Control/ColorRect/Control/Banneranimation/Firewallbanner/AnimationPlayer
+@onready var Scanwallbanner = $TileMapLayer/Control/ColorRect/Control/Banneranimation/Scanwallbanner/AnimationPlayer
+@onready var Player1banner = $TileMapLayer/Control/ColorRect/Control/Banneranimation/Player1banner/AnimationPlayer
+@onready var Player2banner = $TileMapLayer/Control/ColorRect/Control/Banneranimation/Player2banner/AnimationPlayer
+@onready var Player3banner = $TileMapLayer/Control/ColorRect/Control/Banneranimation/Player3banner/AnimationPlayer
+@onready var Player4banner = $TileMapLayer/Control/ColorRect/Control/Banneranimation/Player4banner/AnimationPlayer
+@onready var Virusbanner = $TileMapLayer/Control/ColorRect/Control/Banneranimation/Virusbanner/Virusbanneranimation
+
 var GameoverScene = "res://Scenes/Game over.tscn"
 var WinScene = "res://Scenes/Winning screen.tscn"
 
@@ -216,17 +224,22 @@ func _physics_process(delta: float):
 	
 	for i in range(ScoreLabels.size()):
 		ScoreLabels[i].text = "Player " + str(i + 1) + ":  " + str(Singleton.PlayerScores[i])
-	
+	#can't fix help ;(
 	if DisplayPlr == 1:
 		pIndicator.texture = load("res://Images/character blue.png")
+		Player1banner.play("Moving in")#its looped ;-;
 	elif DisplayPlr == 2:
 		pIndicator.texture = load("res://Images/character Green.png")
+		Player2banner.play("Moving in")#its looped ;-;
 	elif DisplayPlr == 3:
 		pIndicator.texture = load("res://Images/character yellow.png")
+		Player3banner.play("Moving in")#its looped ;-;
 	elif DisplayPlr == 4:
 		pIndicator.texture = load("res://Images/Player Red.png")
+		Player4banner.play("Moving in")#its looped ;-;
 	elif DisplayPlr == 5:
 		pIndicator.texture = load("res://Images/Virus Digital.png")
+		Virusbanner.play("Moving in")#its looped ;-;
 	
 	var count = 0
 	for i in range(VControllers.size()):
