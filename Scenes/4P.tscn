@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=4 uid="uid://byctv1o3ajb6f"]
+[gd_scene load_steps=60 format=4 uid="uid://byctv1o3ajb6f"]
 
 [ext_resource type="Texture2D" uid="uid://d2pchiuna4e8" path="res://MAP/images.jpg" id="1_6a8qt"]
 [ext_resource type="Script" uid="uid://njrkucjpnu1k" path="res://Scripts/Main4P.gd" id="1_i2ov8"]
@@ -14,15 +14,16 @@
 [ext_resource type="Texture2D" uid="uid://dcal5l8dkjpri" path="res://Images/Scanwallusedbanner.png" id="7_lixbk"]
 [ext_resource type="Texture2D" uid="uid://b6fh7j7l5w40u" path="res://Images/FIREWALL CARD.png" id="7_wpb5i"]
 [ext_resource type="Texture2D" uid="uid://b4nqg8idsc6a7" path="res://Images/Virusbanner.png" id="8_aw4gr"]
-[ext_resource type="Texture2D" uid="uid://djwhdmbmqr2ag" path="res://Images/the-server-4.webp" id="8_aw77x"]
 [ext_resource type="Texture2D" uid="uid://u7qt0r8gpf6x" path="res://Images/Player4banner.png" id="8_dlw64"]
 [ext_resource type="Texture2D" uid="uid://bbkhbq4fqhisx" path="res://Images/Virus Digital.png" id="8_i2ov8"]
 [ext_resource type="Texture2D" uid="uid://ginhqg2ajs7w" path="res://Images/overclock.png" id="8_j7obd"]
 [ext_resource type="Texture2D" uid="uid://dh5hgtyowfudw" path="res://Images/Player Red.png" id="8_wpb5i"]
 [ext_resource type="Texture2D" uid="uid://g0pq2gy4yj7y" path="res://Images/Firewallusedbanner.png" id="9_5gxmh"]
+[ext_resource type="Texture2D" uid="uid://cy4d2x0iwn6qy" path="res://Images/Overclocked.png" id="12_dlw64"]
 [ext_resource type="AudioStream" uid="uid://dr0e4ww1uoc0h" path="res://Sound/powerUp scan.wav" id="14_c317b"]
 [ext_resource type="AudioStream" uid="uid://dni47np6rdnmn" path="res://Sound/powerUp firewall.wav" id="15_x7jwk"]
 [ext_resource type="AudioStream" uid="uid://by8jdo45oewu2" path="res://Sound/powerUp overclock.wav" id="16_075bn"]
+[ext_resource type="Texture2D" uid="uid://bk8gbfqlxx01y" path="res://Images/Server new.png" id="22_5gxmh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rceh8"]
 texture = ExtResource("1_6a8qt")
@@ -393,6 +394,43 @@ _data = {
 &"Moving in": SubResource("Animation_aw4gr")
 }
 
+[sub_resource type="Animation" id="Animation_5gxmh"]
+resource_name = "Moving in"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 1.06667, 1.26667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-955, 203), Vector2(70, 203), Vector2(70, 203), Vector2(1101, 203)]
+}
+
+[sub_resource type="Animation" id="Animation_i0vsh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-955, 203)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jseox"]
+_data = {
+&"Moving in": SubResource("Animation_5gxmh"),
+&"RESET": SubResource("Animation_i0vsh")
+}
+
 [sub_resource type="LabelSettings" id="LabelSettings_j7obd"]
 font_size = 35
 
@@ -600,9 +638,19 @@ position = Vector2(-705.6, -96.95)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("8_aw4gr")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="TileMapLayer/Control/ColorRect/Control/Banneranimation/Virusbanner"]
+[node name="Virusbanneranimation" type="AnimationPlayer" parent="TileMapLayer/Control/ColorRect/Control/Banneranimation/Virusbanner"]
 libraries = {
 &"": SubResource("AnimationLibrary_dlw64")
+}
+
+[node name="Overclockbanner" type="Sprite2D" parent="TileMapLayer/Control/ColorRect/Control/Banneranimation"]
+position = Vector2(-955, 203)
+scale = Vector2(0.23, 0.23)
+texture = ExtResource("12_dlw64")
+
+[node name="Overclockbannerani" type="AnimationPlayer" parent="TileMapLayer/Control/ColorRect/Control/Banneranimation/Overclockbanner"]
+libraries = {
+&"": SubResource("AnimationLibrary_jseox")
 }
 
 [node name="Label" type="Label" parent="TileMapLayer/Control/ColorRect"]
@@ -830,16 +878,16 @@ position = Vector2(176, 48)
 
 [node name="Sprite2D" type="Sprite2D" parent="DataNode"]
 position = Vector2(3.8147e-06, 0)
-scale = Vector2(0.0625, 0.0625)
-texture = ExtResource("8_aw77x")
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("22_5gxmh")
 
 [node name="DataNode2" type="Node2D" parent="."]
 position = Vector2(176, 48)
 
 [node name="Sprite2D" type="Sprite2D" parent="DataNode2"]
 position = Vector2(3.8147e-06, 0)
-scale = Vector2(0.0625, 0.0625)
-texture = ExtResource("8_aw77x")
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("22_5gxmh")
 
 [node name="Area2D" type="Area2D" parent="."]
 z_index = 2

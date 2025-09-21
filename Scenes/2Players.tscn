@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=4 uid="uid://byctv1o3ajb6f"]
+[gd_scene load_steps=56 format=4 uid="uid://byctv1o3ajb6f"]
 
 [ext_resource type="Script" uid="uid://fcq20bqys2vd" path="res://Scripts/Main2P.gd" id="1_gssjv"]
 [ext_resource type="Texture2D" uid="uid://d2pchiuna4e8" path="res://MAP/images.jpg" id="2_4exio"]
@@ -11,11 +11,12 @@
 [ext_resource type="Texture2D" uid="uid://bbkhbq4fqhisx" path="res://Images/Virus Digital.png" id="7_4exio"]
 [ext_resource type="Texture2D" uid="uid://ginhqg2ajs7w" path="res://Images/overclock.png" id="8_rceh8"]
 [ext_resource type="Texture2D" uid="uid://dcal5l8dkjpri" path="res://Images/Scanwallusedbanner.png" id="9_52c0p"]
-[ext_resource type="Texture2D" uid="uid://djwhdmbmqr2ag" path="res://Images/the-server-4.webp" id="9_kn6tm"]
 [ext_resource type="Texture2D" uid="uid://dqw0bou5k7wet" path="res://Images/Player1banner.png" id="11_w0gig"]
 [ext_resource type="Texture2D" uid="uid://b4nqg8idsc6a7" path="res://Images/Virusbanner.png" id="12_ijwas"]
 [ext_resource type="Texture2D" uid="uid://d0fssk4hwa7hr" path="res://Images/Player2banner.png" id="12_vfn53"]
+[ext_resource type="Texture2D" uid="uid://cy4d2x0iwn6qy" path="res://Images/Overclocked.png" id="13_sq8ho"]
 [ext_resource type="AudioStream" uid="uid://dr0e4ww1uoc0h" path="res://Sound/powerUp scan.wav" id="15_j6mec"]
+[ext_resource type="Texture2D" uid="uid://bk8gbfqlxx01y" path="res://Images/Server new.png" id="15_sq8ho"]
 [ext_resource type="AudioStream" uid="uid://dni47np6rdnmn" path="res://Sound/powerUp firewall.wav" id="16_ijwas"]
 [ext_resource type="AudioStream" uid="uid://by8jdo45oewu2" path="res://Sound/powerUp overclock.wav" id="17_sq8ho"]
 
@@ -588,7 +589,7 @@ _data = {
 
 [sub_resource type="Animation" id="Animation_ljtxc"]
 resource_name = "Moving in"
-length = 2.0
+length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -605,6 +606,27 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gpmtp"]
 _data = {
 &"Moving in": SubResource("Animation_ljtxc")
+}
+
+[sub_resource type="Animation" id="Animation_1m77n"]
+resource_name = "Moving in"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 1.2, 1.43333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-273, 305.5), Vector2(764, 305.5), Vector2(764, 305.5), Vector2(2060, 305.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jpld7"]
+_data = {
+&"Moving in": SubResource("Animation_1m77n")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4exio"]
@@ -861,14 +883,24 @@ libraries = {
 &"": SubResource("AnimationLibrary_j6mec")
 }
 
-[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/Control/Banneranimation"]
+[node name="Virusbanner" type="Sprite2D" parent="TileMapLayer/Control/Banneranimation"]
 position = Vector2(-140, 26)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("12_ijwas")
 
-[node name="Virusbanneranimation" type="AnimationPlayer" parent="TileMapLayer/Control/Banneranimation/Sprite2D"]
+[node name="Virusbannerani" type="AnimationPlayer" parent="TileMapLayer/Control/Banneranimation/Virusbanner"]
 libraries = {
 &"": SubResource("AnimationLibrary_gpmtp")
+}
+
+[node name="Overclockbanner" type="Sprite2D" parent="TileMapLayer/Control/Banneranimation"]
+position = Vector2(-273, 305.5)
+scale = Vector2(0.23, 0.23)
+texture = ExtResource("13_sq8ho")
+
+[node name="Overclockbannerani" type="AnimationPlayer" parent="TileMapLayer/Control/Banneranimation/Overclockbanner"]
+libraries = {
+&"": SubResource("AnimationLibrary_jpld7")
 }
 
 [node name="Player" type="Node2D" parent="."]
@@ -892,16 +924,16 @@ position = Vector2(176, 80)
 
 [node name="Sprite2D" type="Sprite2D" parent="DataNode"]
 position = Vector2(3.8147e-06, 0)
-scale = Vector2(0.0625, 0.0625)
-texture = ExtResource("9_kn6tm")
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("15_sq8ho")
 
 [node name="DataNode2" type="Node2D" parent="."]
 position = Vector2(176, 80)
 
 [node name="Sprite2D" type="Sprite2D" parent="DataNode2"]
 position = Vector2(3.8147e-06, 0)
-scale = Vector2(0.0625, 0.0625)
-texture = ExtResource("9_kn6tm")
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("15_sq8ho")
 
 [node name="Area2D" type="Area2D" parent="."]
 z_index = 2

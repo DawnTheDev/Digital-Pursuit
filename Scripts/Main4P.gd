@@ -42,7 +42,7 @@ extends Node2D
 @onready var Player3banner = $TileMapLayer/Control/ColorRect/Control/Banneranimation/Player3banner/AnimationPlayer
 @onready var Player4banner = $TileMapLayer/Control/ColorRect/Control/Banneranimation/Player4banner/AnimationPlayer
 @onready var Virusbanner = $TileMapLayer/Control/ColorRect/Control/Banneranimation/Virusbanner/Virusbanneranimation
-
+@onready var Overclockbanner = $TileMapLayer/Control/ColorRect/Control/Banneranimation/Overclockbanner/Overclockbannerani
 var GameoverScene = "res://Scenes/Game over.tscn"
 var WinScene = "res://Scenes/Winning screen.tscn"
 
@@ -68,6 +68,7 @@ var DisplayPlr = 1
 
 func _ready():
 	Singleton.PlayerScores = [0, 0, 0, 0]
+	Player1banner.play("Moving in")
 	for i in range(Singleton.PlayerPowerUps.size()):
 		Singleton.PlayerPowerUps[i] = [0, 0, 1]
 	
@@ -126,12 +127,12 @@ func _input(event):
 		)
 		
 		PControllers[activePlr].calpath(id)
-		
 		await get_tree().create_timer(1).timeout
+
 		
 		if activePlr == 3:
 			DisplayPlr = 5
-			
+			Virusbanner.play("Moving in")
 			for i in range(virusNodes.size()):
 				
 				PControllers[activePlr].setturn(false)
@@ -146,12 +147,13 @@ func _input(event):
 				VControllers[i].calpath(VID)
 			
 			await get_tree().create_timer(.75).timeout
-			
+			Player1banner.play("Moving in")
 			activePlr = (activePlr + 1) % PControllers.size()
 			PControllers[activePlr].setturn(true)
 			DisplayPlr = activePlr + 1
 			
 		else:
+			
 			scanUsed = false
 			firewallUsed = false
 			OverclockUsed = false
@@ -161,13 +163,24 @@ func _input(event):
 			activePlr = (activePlr + 1) % PControllers.size()
 			PControllers[activePlr].setturn(true)
 			DisplayPlr = activePlr + 1
+			
+		
+				
+			if activePlr == 1:
+				Player2banner.play("Moving in")
+			elif activePlr == 2:
+				Player3banner.play("Moving in")
+			elif activePlr == 3:
+				Player4banner.play("Moving in")
+				
+	
+			
 		
 		debounce = false
-	
+		
 	if event.is_action_pressed("debug"):
 			print(Singleton.PlayerPowerUps)
-
-
+	
 func _physics_process(delta: float):
 	if End: return
 	
@@ -217,7 +230,7 @@ func _physics_process(delta: float):
 					OverclockAmountIN.text = "X" + str(Singleton.PlayerPowerUps[i][2])
 				
 				else:
-					print(2)
+					#print(2)
 					OverclockButton.visible = false
 					OverclockAmountIN.visible = false
 	
@@ -227,19 +240,19 @@ func _physics_process(delta: float):
 	#can't fix help ;(
 	if DisplayPlr == 1:
 		pIndicator.texture = load("res://Images/character blue.png")
-		Player1banner.play("Moving in")#its looped ;-;
+	
 	elif DisplayPlr == 2:
 		pIndicator.texture = load("res://Images/character Green.png")
-		Player2banner.play("Moving in")#its looped ;-;
+	
 	elif DisplayPlr == 3:
 		pIndicator.texture = load("res://Images/character yellow.png")
-		Player3banner.play("Moving in")#its looped ;-;
+	
 	elif DisplayPlr == 4:
 		pIndicator.texture = load("res://Images/Player Red.png")
-		Player4banner.play("Moving in")#its looped ;-;
+
 	elif DisplayPlr == 5:
 		pIndicator.texture = load("res://Images/Virus Digital.png")
-		Virusbanner.play("Moving in")#its looped ;-;
+		
 	
 	var count = 0
 	for i in range(VControllers.size()):
@@ -333,9 +346,10 @@ func _on_button_2_pressed() -> void:
 	sfx_firewall.play()
 
 func _on_button_3_pressed() -> void:
+	Overclockbanner.play("Moving in")
 	OverclockActive = true
 	OverclockUsed = true
 	Singleton.PlayerPowerUps[activePlr][2] -= 1
 	OverclockButton.visible = false
 	sfx_overclock.play()
-		
+	

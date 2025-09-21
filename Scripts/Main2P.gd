@@ -25,7 +25,8 @@ extends Node2D
 @onready var Scanwallbanner = $TileMapLayer/Control/Banneranimation/Scanwallbanner/Scanwallbannerani
 @onready var Player1banner = $TileMapLayer/Control/Banneranimation/Player1banner/AnimationPlayer
 @onready var Player2banner = $TileMapLayer/Control/Banneranimation/Player2banner/AnimationPlayer2
-@onready var Virusbanner = $TileMapLayer/Control/Banneranimation/Sprite2D/Virusbanneranimation
+@onready var Virusbanner = $TileMapLayer/Control/Banneranimation/Virusbanner/Virusbannerani
+@onready var Overclockbanner = $TileMapLayer/Control/Banneranimation/Overclockbanner/Overclockbannerani
 var GameoverScene = "res://Scenes/Game over.tscn"
 var WinScene = "res://Scenes/Winning screen.tscn"
 
@@ -386,6 +387,7 @@ func _on_button_2_pressed() -> void:
 
 
 func _on_button_3_pressed() -> void:
+	Overclockbanner.play("Moving in")
 	OverclockActive = true
 	OverclockUsed = true
 	OverclockButton.visible = false
