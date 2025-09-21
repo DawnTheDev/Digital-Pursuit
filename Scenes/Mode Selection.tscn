@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://dm15qcc4t1n8c" path="res://Scripts/button.gd" id="1_kjpjg"]
 [ext_resource type="FontFile" uid="uid://5pm6sclng1ir" path="res://Fonts/Square.ttf" id="2_h7sbb"]
-[ext_resource type="Texture2D" uid="uid://bfnob6i6kdsln" path="res://Images/Banner duo.png" id="3_kjpjg"]
+[ext_resource type="Texture2D" uid="uid://8lohmy75rckn" path="res://Images/Banner duo.png" id="3_kjpjg"]
 [ext_resource type="Texture2D" uid="uid://cdvmri1emc8ac" path="res://Images/7b43821b-6983-4544-8441-e608b8e72747.ec8c48382a3f9d69d8bde8eebe1179d3.png" id="3_skxny"]
-[ext_resource type="Texture2D" uid="uid://oslchciqfagm" path="res://Images/Quad banner.png" id="3_t74nv"]
-[ext_resource type="Script" uid="uid://duathx34f67jq" path="res://Scenes/duobanner.gd" id="5_h6v6k"]
-[ext_resource type="Script" uid="uid://djbgbqpeh6ugs" path="res://Scenes/quadbanner.gd" id="7_tpc6e"]
+[ext_resource type="Texture2D" uid="uid://c656cub0qlaqh" path="res://Images/Quad banner.png" id="3_t74nv"]
+[ext_resource type="Script" uid="uid://duathx34f67jq" path="res://Scripts/duobanner.gd" id="5_h6v6k"]
+[ext_resource type="Script" uid="uid://djbgbqpeh6ugs" path="res://Scripts/quadbanner.gd" id="7_tpc6e"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
