@@ -99,6 +99,7 @@ func _physics_process(delta):
 				#PLabel[i].text = "Player " + str(i + 1) + ": " + str(1)
 				
 				var rng = randi_range(0, 2)
+				print(rng)
 				Singleton.PlayerPowerUps[i][rng] += 1
 				
 				Singleton.PlayerScores[i] += 1

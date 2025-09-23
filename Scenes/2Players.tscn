@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=4 uid="uid://byctv1o3ajb6f"]
+[gd_scene load_steps=57 format=4 uid="uid://byctv1o3ajb6f"]
 
 [ext_resource type="Script" uid="uid://fcq20bqys2vd" path="res://Scripts/Main2P.gd" id="1_gssjv"]
 [ext_resource type="Texture2D" uid="uid://d2pchiuna4e8" path="res://MAP/images.jpg" id="2_4exio"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bbkhbq4fqhisx" path="res://Images/Virus Digital.png" id="7_4exio"]
 [ext_resource type="Texture2D" uid="uid://ginhqg2ajs7w" path="res://Images/overclock.png" id="8_rceh8"]
 [ext_resource type="Texture2D" uid="uid://dcal5l8dkjpri" path="res://Images/Scanwallusedbanner.png" id="9_52c0p"]
+[ext_resource type="Texture2D" uid="uid://g0pq2gy4yj7y" path="res://Images/Firewallusedbanner.png" id="11_ljtxc"]
 [ext_resource type="Texture2D" uid="uid://dqw0bou5k7wet" path="res://Images/Player1banner.png" id="11_w0gig"]
 [ext_resource type="Texture2D" uid="uid://b4nqg8idsc6a7" path="res://Images/Virusbanner.png" id="12_ijwas"]
 [ext_resource type="Texture2D" uid="uid://d0fssk4hwa7hr" path="res://Images/Player2banner.png" id="12_vfn53"]
@@ -864,8 +865,10 @@ libraries = {
 }
 
 [node name="Firewallbanner" type="Sprite2D" parent="TileMapLayer/Control/Banneranimation"]
+z_index = 2
 position = Vector2(-690, 305.5)
 scale = Vector2(0.23, 0.255945)
+texture = ExtResource("11_ljtxc")
 
 [node name="Firewallbannerani" type="AnimationPlayer" parent="TileMapLayer/Control/Banneranimation/Firewallbanner"]
 libraries = {
@@ -894,6 +897,7 @@ libraries = {
 }
 
 [node name="Overclockbanner" type="Sprite2D" parent="TileMapLayer/Control/Banneranimation"]
+z_index = 2
 position = Vector2(-273, 305.5)
 scale = Vector2(0.23, 0.23)
 texture = ExtResource("13_sq8ho")
@@ -973,12 +977,15 @@ texture = ExtResource("7_4exio")
 
 [node name="scanuse" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_j6mec")
+volume_db = -20.0
 
 [node name="firewalluse" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_ijwas")
+volume_db = -20.0
 
 [node name="overclockuse" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_sq8ho")
+volume_db = -20.0
 
 [connection signal="pressed" from="TileMapLayer/Control/ColorRect/End turn" to="." method="_on_end_turn_pressed"]
 [connection signal="pressed" from="TileMapLayer/Control/ColorRect/Cards/Button" to="." method="_on_button_pressed"]

@@ -613,6 +613,7 @@ libraries = {
 }
 
 [node name="Firewallbanner" type="Sprite2D" parent="TileMapLayer/Control/ColorRect/Control/Banneranimation"]
+z_index = 2
 position = Vector2(-955, 194)
 scale = Vector2(0.23, 0.255945)
 texture = ExtResource("9_5gxmh")
@@ -644,6 +645,7 @@ libraries = {
 }
 
 [node name="Overclockbanner" type="Sprite2D" parent="TileMapLayer/Control/ColorRect/Control/Banneranimation"]
+z_index = 2
 position = Vector2(-955, 203)
 scale = Vector2(0.23, 0.23)
 texture = ExtResource("12_dlw64")
@@ -900,12 +902,15 @@ shape = SubResource("RectangleShape2D_6a8qt")
 
 [node name="scanuse" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_c317b")
+volume_db = -20.0
 
 [node name="firewalluse" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_x7jwk")
+volume_db = -20.0
 
 [node name="overclockuse" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_075bn")
+volume_db = -20.0
 
 [connection signal="pressed" from="TileMapLayer/Control/ColorRect/End Turn" to="." method="_on_end_turn_pressed"]
 [connection signal="pressed" from="TileMapLayer/Control/ColorRect/Cards/Button" to="." method="_on_button_pressed"]

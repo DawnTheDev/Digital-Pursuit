@@ -4,3 +4,4 @@
 
 [node name="Menu sound bg" type="AudioStreamPlayer"]
 stream = ExtResource("1_8rx26")
+volume_db = -8.0

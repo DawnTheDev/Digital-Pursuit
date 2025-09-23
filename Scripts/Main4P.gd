@@ -63,6 +63,8 @@ var OverclockUsed: bool
 
 var OverclockActive: bool
 
+var PouwerupCD: bool
+
 var activePlr = 0
 var DisplayPlr = 1
 
@@ -70,7 +72,7 @@ func _ready():
 	Singleton.PlayerScores = [0, 0, 0, 0]
 	Player1banner.play("Moving in")
 	for i in range(Singleton.PlayerPowerUps.size()):
-		Singleton.PlayerPowerUps[i] = [0, 0, 1]
+		Singleton.PlayerPowerUps[i] = [0, 0, 0]
 	
 	for nodes in range(pNodes.size()):
 		print("Registering " + str(nodes))
@@ -108,6 +110,7 @@ func _input(event):
 			print("Not in area")
 			return
 		
+		PouwerupCD = true
 		debounce = true
 		scanUsed = false
 		firewallUsed = false
@@ -173,9 +176,8 @@ func _input(event):
 			elif activePlr == 3:
 				Player4banner.play("Moving in")
 				
-	
-			
 		
+		PouwerupCD = false
 		debounce = false
 		
 	if event.is_action_pressed("debug"):
@@ -184,7 +186,7 @@ func _input(event):
 func _physics_process(delta: float):
 	if End: return
 	
-	for i in range(4):
+	for i in range(5):
 		if i == activePlr:
 			
 			if not scanUsed:
@@ -328,24 +330,29 @@ func _on_area_2d_mouse_exited() -> void:
 
 
 func _on_button_pressed() -> void:
+	if PouwerupCD: return
 	scanUsed = true
 	Singleton.PlayerPowerUps[activePlr][0] -= 1
 	ScanButton.visible = false
 	for nodes in VControllers:
 		nodes.scanactivate()
 	sfx_scan.play()
+	Scanwallbanner.play("Moving in")
 	
 
 
 func _on_button_2_pressed() -> void:
+	if PouwerupCD: return
 	firewallUsed = true
 	Singleton.PlayerPowerUps[activePlr][1] -= 1
 	FirewallButton.visible = false
 	for nodes in VControllers:
 		nodes.firewallactivate()
 	sfx_firewall.play()
+	Firewallbanner.play("Moving in")
 
 func _on_button_3_pressed() -> void:
+	if PouwerupCD: return
 	Overclockbanner.play("Moving in")
 	OverclockActive = true
 	OverclockUsed = true

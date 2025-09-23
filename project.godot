@@ -10,10 +10,12 @@ config_version=5
 
 [application]
 
-config/name="Digital-pursuit-sound"
+config/name="Digital-pursuit"
 run/main_scene="uid://cfjwuv8a8m5bt"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://Images/icon.svg"
+boot_splash/image="uid://bk8gbfqlxx01y"
+config/icon="uid://bk8gbfqlxx01y"
+config/windows_native_icon="res://Images/Server-new.ico"
 
 [autoload]
 
